@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{611B1664-B4C6-4A26-81CD-947685BAEA7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FTSolutions.IEC61034.BizLogic</RootNamespace>
+    <AssemblyName>FTSolutions.IEC61034.BizLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;IS_LOCAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DynamicDataDisplay">
+      <HintPath>..\..\..\..\..\_RefLib\DynamicDataDisplay.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicDataDisplay.Maps">
+      <HintPath>..\..\..\..\..\_RefLib\DynamicDataDisplay.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicDataDisplay.Markers">
+      <HintPath>..\..\..\..\..\_RefLib\DynamicDataDisplay.Markers.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicDataDisplay.Markers2">
+      <HintPath>..\..\..\..\..\_RefLib\DynamicDataDisplay.Markers2.dll</HintPath>
+    </Reference>
+    <Reference Include="eccFramework.SharedLib.Core">
+      <HintPath>..\..\..\..\..\_RefLib\eccFramework.SharedLib.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="eccFramework.SharedLib.GlobalType">
+      <HintPath>..\..\..\..\..\_RefLib\eccFramework.SharedLib.GlobalType.dll</HintPath>
+    </Reference>
+    <Reference Include="eccFramework.SharedLib.Lego">
+      <HintPath>..\..\..\..\..\_RefLib\eccFramework.SharedLib.Lego.dll</HintPath>
+    </Reference>
+    <Reference Include="eccFramework.SharedLib.Utility">
+      <HintPath>..\..\..\..\..\_RefLib\eccFramework.SharedLib.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.Common, Version=19.0.40.49152, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.DAQmx, Version=19.6.45.1, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=x86" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Utility\vmPopup_New_QualificationRegistration.cs" />
+    <Compile Include="ViewModel\Utility\vmPopup_New_Registration.cs" />
+    <Compile Include="ViewModel\vmMainUI.cs" />
+    <Compile Include="ViewModel\vmMainWindow.cs" />
+    <Compile Include="ViewModel\vmPopup_Light.cs" />
+    <Compile Include="ViewModel\vmPopup_NDFilter.cs" />
+    <Compile Include="ViewModel\vmPopup_QualificationSummary.cs" />
+    <Compile Include="ViewModel\vmPopup_Qualification.cs" />
+    <Compile Include="ViewModel\vmPopup_QualificationProperties.cs" />
+    <Compile Include="ViewModel\vmPopup_QualificationRegistration.cs" />
+    <Compile Include="ViewModel\vmPopup_SmokeVentilation.cs" />
+    <Compile Include="ViewModel\vmPopup_BlankTest.cs" />
+    <Compile Include="ViewModel\vmPopup_ChannelSetting.cs" />
+    <Compile Include="ViewModel\vmPopup_ConfigSetting.cs" />
+    <Compile Include="ViewModel\vmPopup_ControlPanel.cs" />
+    <Compile Include="ViewModel\vmPopup_Registration.cs" />
+    <Compile Include="ViewModel\vmPopup_Test.cs" />
+    <Compile Include="ViewModel\vmPopup_TestProperties.cs" />
+    <Compile Include="ViewModel\vmPopup_TestSummary.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\FTSolutions.IEC61034.Common\FTSolutions.IEC61034.Common.csproj">
+      <Project>{08064828-91a9-4010-83a3-c1317856c140}</Project>
+      <Name>FTSolutions.IEC61034.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

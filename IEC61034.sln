@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{FAF2D424-90E1-4456-BC3F-17D7909CDB39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customer", "Customer", "{097607CA-6ACB-4129-8FED-1F4BF6DED5D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FTSolutions", "FTSolutions", "{C91D0062-36EF-4C57-9BC0-E95F2A24E090}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTSolutions.IEC61034.Common", "Common\FTSolutions.IEC61034.Common\FTSolutions.IEC61034.Common.csproj", "{08064828-91A9-4010-83A3-C1317856C140}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTSolutions.IEC61034.BizLogic", "Customer\FTSolutions\FTSolutions.IEC61034.BizLogic\FTSolutions.IEC61034.BizLogic.csproj", "{611B1664-B4C6-4A26-81CD-947685BAEA7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTSolutions.IEC61034.Runner", "Customer\FTSolutions\FTSolutions.IEC61034.Runner\FTSolutions.IEC61034.Runner.csproj", "{2BBA226F-AD1D-4E72-BF81-FD8DFDF12779}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08064828-91A9-4010-83A3-C1317856C140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08064828-91A9-4010-83A3-C1317856C140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08064828-91A9-4010-83A3-C1317856C140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08064828-91A9-4010-83A3-C1317856C140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{611B1664-B4C6-4A26-81CD-947685BAEA7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{611B1664-B4C6-4A26-81CD-947685BAEA7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{611B1664-B4C6-4A26-81CD-947685BAEA7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{611B1664-B4C6-4A26-81CD-947685BAEA7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BBA226F-AD1D-4E72-BF81-FD8DFDF12779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BBA226F-AD1D-4E72-BF81-FD8DFDF12779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BBA226F-AD1D-4E72-BF81-FD8DFDF12779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BBA226F-AD1D-4E72-BF81-FD8DFDF12779}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C91D0062-36EF-4C57-9BC0-E95F2A24E090} = {097607CA-6ACB-4129-8FED-1F4BF6DED5D3}
+		{08064828-91A9-4010-83A3-C1317856C140} = {FAF2D424-90E1-4456-BC3F-17D7909CDB39}
+		{611B1664-B4C6-4A26-81CD-947685BAEA7F} = {C91D0062-36EF-4C57-9BC0-E95F2A24E090}
+		{2BBA226F-AD1D-4E72-BF81-FD8DFDF12779} = {C91D0062-36EF-4C57-9BC0-E95F2A24E090}
+	EndGlobalSection
+EndGlobal

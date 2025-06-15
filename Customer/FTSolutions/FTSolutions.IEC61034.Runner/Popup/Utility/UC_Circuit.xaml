@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="FTSolutions.IEC61034.Runner.Popup.Utility.UC_Circuit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lego="clr-namespace:eccFramework.SharedLib.Lego.Brick;assembly=eccFramework.SharedLib.Lego"
+             xmlns:conv="clr-namespace:FTSolutions.IEC61034.Common.Converter;assembly=FTSolutions.IEC61034.Common"
+             xmlns:local="clr-namespace:FTSolutions.IEC61034.Runner.Popup.Utility"
+             Width="753" Height="390">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/eccFramework.SharedLib.Core;component/Styles/PopupBrushes.xaml"/>
+                <ResourceDictionary Source="/FTSolutions.IEC61034.Runner;component/Styles/IEC61034Brushes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <conv:BooleanToValidColorConverter x:Key="booleanToValidColorConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Border>
+        <Canvas>
+            <Image x:Name="rightChamber" Source="/FTSolutions.IEC61034.Runner;component/Images/unit_circuit.png"/>
+
+            <Ellipse Canvas.Left="614" Canvas.Top="135" Width="23.5" Height="23" Fill="{Binding DEVICE_MANAGER.DigitalInput.IsL1Good, Mode=OneWay, Converter={StaticResource booleanToValidColorConverter}}"/>
+            <Ellipse Canvas.Left="614" Canvas.Top="172" Width="23.5" Height="23" Fill="{Binding DEVICE_MANAGER.DigitalInput.IsL2Good, Mode=OneWay, Converter={StaticResource booleanToValidColorConverter}}"/>
+            <Ellipse Canvas.Left="614" Canvas.Top="209" Width="23.5" Height="23" Fill="{Binding DEVICE_MANAGER.DigitalInput.IsL3Good, Mode=OneWay, Converter={StaticResource booleanToValidColorConverter}}"/>
+            <Ellipse Canvas.Left="614" Canvas.Top="248" Width="23.5" Height="23" Fill="{Binding DEVICE_MANAGER.DigitalInput.IsNGood, Mode=OneWay, Converter={StaticResource booleanToValidColorConverter}}"/>
+            <Ellipse Canvas.Left="614" Canvas.Top="287" Width="23.5" Height="23" Fill="{Binding DEVICE_MANAGER.DigitalInput.IsPEGood, Mode=OneWay, Converter={StaticResource booleanToValidColorConverter}}"/>
+        </Canvas>
+    </Border>
+</UserControl>

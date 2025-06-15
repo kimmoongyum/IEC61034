@@ -1,0 +1,253 @@
+﻿<bw:BlackWindow x:Class="FTSolutions.IEC61034.Runner.MainWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                xmlns:bw="clr-namespace:eccFramework.SharedLib.Core.Base;assembly=eccFramework.SharedLib.Core"
+                xmlns:lego="clr-namespace:eccFramework.SharedLib.Lego.Brick;assembly=eccFramework.SharedLib.Lego"
+                xmlns:conv="clr-namespace:FTSolutions.IEC61034.Common.Converter;assembly=FTSolutions.IEC61034.Common"
+                xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                WindowState="Maximized" Background="Transparent" MaximizeOverTaskbar="True" AllowsTransparency="True" WindowStyle="None"
+                Title="{DynamicResource main_header}" >
+    <bw:BlackWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/eccFramework.SharedLib.Core;component/Styles/PopupBrushes.xaml"/>
+                <ResourceDictionary Source="/FTSolutions.IEC61034.Runner;component/Styles/IEC61034Brushes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <conv:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
+            <conv:BooleanToReverseVisibilityConverter x:Key="booleanToReverseVisibilityConverter" />
+
+            <Style x:Key="WizardToggleButtonStyleKey" TargetType="ToggleButton">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Wizard Image -->
+            <BitmapImage PresentationOptions:Freeze="true" x:Key="WizardNormalImageKey">pack://application:,,,/eccFramework.SharedLib.Core;component/Images/ic_start_wizard_off.png</BitmapImage>
+            <BitmapImage PresentationOptions:Freeze="true" x:Key="WizardOverImageKey">pack://application:,,,/eccFramework.SharedLib.Core;component/Images/ic_start_wizard_over.png</BitmapImage>
+            <BitmapImage PresentationOptions:Freeze="true" x:Key="WizardPressImageKey">pack://application:,,,/eccFramework.SharedLib.Core;component/Images/ic_start_wizard_on.png</BitmapImage>
+
+            <!-- Function Image -->
+            <BitmapImage PresentationOptions:Freeze="true" x:Key="MenuNormalImageKey">pack://application:,,,/eccFramework.SharedLib.Core;component/Images/ic_start_menu.png</BitmapImage>
+            <BitmapImage PresentationOptions:Freeze="true" x:Key="SystemNormalImageKey">pack://application:,,,/eccFramework.SharedLib.Core;component/Images/ic_start_report.png</BitmapImage>
+            <BitmapImage PresentationOptions:Freeze="true" x:Key="PowerNormalImageKey">pack://application:,,,/eccFramework.SharedLib.Core;component/Images/ic_start_power.png</BitmapImage>
+
+            <!-- Wizard Button -->
+            <DataTemplate x:Key="WizardToggleButtonContentTemplateKey">
+                <StackPanel Width="45" Height="45">
+                    <Image x:Name="image" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality" SnapsToDevicePixels="True" UseLayoutRounding="True"
+                           Source="{StaticResource WizardNormalImageKey}" />
+                </StackPanel>
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ToggleButton}, Path=IsMouseOver}" Value="true">
+                        <Setter Property="Source" TargetName="image" Value="{StaticResource WizardOverImageKey}"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ToggleButton}, Path=IsChecked}" Value="true">
+                        <Setter Property="Source" TargetName="image" Value="{StaticResource WizardPressImageKey}"/>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+
+            <LinearGradientBrush x:Key="NormalBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Offset="0" Color="#feffe8" />
+                <GradientStop Offset="1" Color="#d6dbbf" />
+            </LinearGradientBrush>
+
+            <ItemsPanelTemplate x:Key="PanelTemplate">
+                <UniformGrid Columns="1" IsItemsHost="True" Margin="0,10,0,0" VerticalAlignment="Top" />
+            </ItemsPanelTemplate>
+
+            <DataTemplate x:Key="MenuItemTemplate">
+                <DockPanel>
+                    <Grid Background="#0078D7" Margin="5,0,0,0">
+                        <Border Margin="3" BorderBrush="#76B9ED" BorderThickness="1">
+                            <Image Source="{Binding IMAGE_SOURCE}" Width="30" Height="30"
+                                   Margin="5,0,5,0" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        </Border>
+                    </Grid>
+
+                    <StackPanel Visibility="{Binding IsLanguageENG, Converter={StaticResource booleanToReverseVisibilityConverter}}" Orientation="Vertical" VerticalAlignment="Center" Margin="10,0,5,0">
+                        <TextBlock Text="{Binding MENU_NAME_KO}" FontSize="18" Foreground="#76B9ED" DockPanel.Dock="Top" />
+                    </StackPanel>
+                    <StackPanel Visibility="{Binding IsLanguageENG, Converter={StaticResource booleanToVisibilityConverter}}" Orientation="Vertical" VerticalAlignment="Center" Margin="10,0,5,0">
+                        <TextBlock Text="{Binding MENU_NAME}" FontSize="18" Foreground="#76B9ED" DockPanel.Dock="Top" />
+                    </StackPanel>
+                </DockPanel>
+            </DataTemplate>
+
+            <Style x:Key="ListBoxItemStyle" TargetType="ListBoxItem">
+                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                <Setter Property="Margin" Value="5,0,5,5" />
+                <Setter Property="Height" Value="60" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListBoxItem">
+                            <Border x:Name="Root" BorderBrush="Gray" BorderThickness="1" CornerRadius="1" Background="#1FCCCCCC">
+                                <ContentPresenter Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderBrush" Value="#2a849d" TargetName="Root" />
+                                    <Setter Property="BorderThickness" Value="1.5" TargetName="Root" />
+                                    <Setter Property="Background" Value="#2D2D30" TargetName="Root" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="CaptureButtonStyle" TargetType="Button">
+                <Setter Property="Width" Value="30" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border>
+                                    <Image x:Name="ButtonImage" Width="24" Height="24" Stretch="Fill"
+                                           Source="{Binding Path=(bw:BlackWindow.NormalImage), RelativeSource={RelativeSource TemplatedParent}}"/>
+                                </Border>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Source" TargetName="ButtonImage"
+                                            Value="{Binding Path=(bw:BlackWindow.HoverImage), RelativeSource={RelativeSource TemplatedParent}}" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Source" TargetName="ButtonImage"
+                                            Value="{Binding Path=(bw:BlackWindow.PressedImage), RelativeSource={RelativeSource TemplatedParent}}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </bw:BlackWindow.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="48" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="1" BorderBrush="#333333" Background="#2D2D30" BorderThickness="1">
+            <DockPanel>
+                <Grid DockPanel.Dock="Left" Width="60">
+                    <ToggleButton x:Name="btnWizard" Style="{StaticResource WizardToggleButtonStyleKey}"
+                                  ContentTemplate="{StaticResource WizardToggleButtonContentTemplateKey}"
+                                  Command="{Binding WizardClick}" IsChecked="{Binding WizardClickState}"/>
+                    <Popup IsOpen="{Binding ElementName=btnWizard, Path=IsChecked}"
+                           PlacementTarget="{Binding ElementName=btnHelp}"
+                           Placement="Top" StaysOpen="False" AllowsTransparency="True" HorizontalOffset="1" VerticalOffset="-3" >
+                        <Border BorderBrush="#cF8c8c8c" BorderThickness="1" Background="#FF000000" Width="480" Height="540">
+                            <DockPanel>
+                                <Grid Margin="5" Width="50" DockPanel.Dock="Left">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <lego:FlagButton FlagColor="#76B9ED" Grid.Row="0"
+                                                     IsChecked="{Binding MenuIsChecked}"
+                                                     Image="{StaticResource MenuNormalImageKey}"
+                                                     Command="{Binding MenuIconClick}" CommandParameter="{Binding Path=IsChecked, RelativeSource={RelativeSource Self}}" />
+                                    <lego:FlagButton FlagColor="#76B9ED" Grid.Row="1"
+                                                     IsChecked="{Binding SystemIsChecked}"
+                                                     Image="{StaticResource SystemNormalImageKey}"
+                                                     Command="{Binding SystemIconClick}" CommandParameter="{Binding Path=IsChecked, RelativeSource={RelativeSource Self}}"/>
+                                    <lego:FlagButton FlagColor="Transparent" Grid.Row="3"
+                                                     Image="{StaticResource PowerNormalImageKey}"
+                                                     Command="{Binding PowerIconClick}"/>
+                                </Grid>
+                                <Border Width="2" BorderThickness="1,0,1,0" Background="#FF1B1F27" BorderBrush="#FF363C46" Margin="0,5,0,5"/>
+                                <Grid>
+                                    <DockPanel x:Name="menuPanel" Visibility="{Binding MenuPanelVisibility}" Background="Transparent">
+                                        <ListBox Name="menuListBox" Background="Transparent"
+                                                 ItemsSource="{Binding MainMenuInfo}"
+                                                 ItemContainerStyle="{StaticResource ListBoxItemStyle}"
+                                                 ItemTemplate="{StaticResource MenuItemTemplate}"
+                                                 ItemsPanel="{StaticResource PanelTemplate}" 
+                                                 PreviewMouseLeftButtonDown="menuListBox_PreviewMouseLeftButtonDown"
+                                                 HorizontalAlignment="Stretch"
+                                                 BorderThickness="0">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="MouseLeftButtonUp">
+                                                    <i:InvokeCommandAction Command="{Binding MenuSelect}" CommandParameter="{Binding ElementName=menuListBox, Path=SelectedValue}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </ListBox>
+                                    </DockPanel>
+                                    <DockPanel x:Name="systemPanel" Visibility="{Binding SystemPanelVisibility}">
+                                        <ListBox Name="systemListBox" Background="Transparent"
+                                                 ItemsSource="{Binding SystemMenuInfo}"
+                                                 ItemContainerStyle="{StaticResource ListBoxItemStyle}"
+                                                 ItemTemplate="{StaticResource MenuItemTemplate}"
+                                                 ItemsPanel="{StaticResource PanelTemplate}" 
+                                                 PreviewMouseLeftButtonDown="systemListBox_PreviewMouseLeftButtonDown"
+                                                 HorizontalAlignment="Stretch"
+                                                 BorderThickness="0">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="MouseLeftButtonUp">
+                                                    <i:InvokeCommandAction Command="{Binding MenuSelect}" CommandParameter="{Binding ElementName=systemListBox, Path=SelectedValue}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </ListBox>
+                                    </DockPanel>
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Popup>
+
+                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="{Binding SESSION_MANAGER.NoAuthVisibility}">
+                        <TextBlock Text="NO Auth!!" Foreground="RosyBrown" FontSize="14" FontWeight="Bold" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,4,10,4" />
+                    </Border>
+                </Grid>
+
+                <Button DockPanel.Dock="Right"
+                        bw:BlackWindow.NormalImage="/eccFramework.SharedLib.Core;component/Images/capture_normal.png"
+                        bw:BlackWindow.HoverImage="/eccFramework.SharedLib.Core;component/Images/capture_hover.png"
+                        bw:BlackWindow.PressedImage="/eccFramework.SharedLib.Core;component/Images/capture_pressed.png"
+                        Style="{StaticResource CaptureButtonStyle}" Command="{Binding CaptureClick}"/>
+
+                <Label DockPanel.Dock="Right" Content="{Binding CurrentDateTime}" ContentStringFormat="{}{0:yyyy-MM-dd HH:mm:ss}"
+                       Foreground="DarkGray" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"
+                       Margin="10,0,10,0" Width="180" HorizontalContentAlignment="Right"/>
+
+                <lego:eccComboBox x:Name="cmbLanguage" DockPanel.Dock="Right" Width="100" Height="35" FontSize="18"
+                                  VerticalAlignment="Center" HorizontalContentAlignment="Center"
+                                  SelectionChanged="cmbLanguage_SelectionChanged"
+                                  ItemsSource="{Binding SESSION_MANAGER.LanguageDataSource}" SelectedValue="{Binding SESSION_MANAGER.CurrentLanguage}"/>
+
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0,20,0">
+                    <lego:BulletAlarmButton BorderBrush="{Binding StatusDatabase}" IsChecked="True" IsEnabled="False" Width="30" Height="30"/>
+                    <lego:eccTextBlock Margin="5,0,10,0" Text="{DynamicResource main_database}" FontSize="18" VerticalAlignment="Center" />
+                    <lego:BulletAlarmButton BorderBrush="{Binding StatusDeviceAnalog}" IsChecked="True" IsEnabled="False" Width="30" Height="30"/>
+                    <lego:eccTextBlock Margin="5,0,10,0" Text="{DynamicResource main_analog}" FontSize="18" VerticalAlignment="Center" />
+                    <lego:BulletAlarmButton BorderBrush="{Binding StatusDeviceDigital}" IsChecked="True" IsEnabled="False" Width="30" Height="30"/>
+                    <lego:eccTextBlock Margin="5,0,10,0" Text="{DynamicResource main_digital}" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <StackPanel />
+            </DockPanel>
+        </Border>
+
+        <Border Grid.Row="0" Padding="2">
+            <DockPanel x:Name="mainUIArea"/>
+        </Border>
+
+    </Grid>
+</bw:BlackWindow>

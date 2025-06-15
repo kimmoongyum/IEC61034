@@ -1,0 +1,529 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="main_database">데이터베이스</system:String>
+    <system:String x:Key="main_analog">아날로그</system:String>
+    <system:String x:Key="main_digital">디지털</system:String>
+    <system:String x:Key="main_header">케이블 연소 시 발생하는 연기 밀도 측정</system:String>
+    
+    <system:String x:Key="main_light">광원</system:String>
+    <system:String x:Key="main_ignitor">점화기</system:String>
+    <system:String x:Key="main_fan">팬</system:String>   
+    <system:String x:Key="main_in_damper">IN 댐퍼</system:String>
+    <system:String x:Key="main_out_damper">OUT 댐퍼</system:String> 
+    <system:String x:Key="main_lamp">램프</system:String>
+    <system:String x:Key="main_nd_filter">ND Filter</system:String>
+    <system:String x:Key="main_clear_filter">Clear</system:String>
+    <system:String x:Key="main_dark_filter">Dark</system:String>
+    <system:String x:Key="main_nd_filter_01">0.1</system:String>
+    <system:String x:Key="main_nd_filter_02">0.2</system:String>
+    <system:String x:Key="main_nd_filter_03">0.3</system:String>
+    <system:String x:Key="main_nd_filter_05">0.5</system:String>
+    <system:String x:Key="main_nd_filter_07">0.7</system:String>
+    <system:String x:Key="main_nd_filter_10">1.0</system:String>
+    <system:String x:Key="main_power">Power</system:String>
+
+    <system:String xml:space="preserve" x:Key="main_transmission">투과율 &#x0a;(%)</system:String>
+    <system:String xml:space="preserve" x:Key="main_absorbance">흡수율 &#x0a;(%)</system:String>
+    <system:String xml:space="preserve" x:Key="main_chamber_tc">챔버 온도 &#x0a;(℃)</system:String>
+    <system:String xml:space="preserve" x:Key="main_fan_flowrate">팬 &#x0a;(Hz)</system:String>
+
+    <system:String x:Key="key_channel">채널</system:String>
+    <system:String x:Key="key_address">주소</system:String>
+    <system:String x:Key="key_voltage">전압</system:String>
+    <system:String x:Key="key_min">최소</system:String>
+    <system:String x:Key="key_max">최대</system:String>
+    <system:String x:Key="key_gradient">기울기</system:String>
+    <system:String x:Key="key_intercept">절대값</system:String>
+    <system:String x:Key="key_value">값</system:String>
+    <system:String x:Key="key_desc">설명</system:String>
+    <system:String x:Key="key_desc2">설명</system:String>
+    <system:String x:Key="key_key">키</system:String>
+    <system:String x:Key="key_filter_condition">필터 조건</system:String>
+    <system:String x:Key="key_registration">접수</system:String>
+    <system:String x:Key="key_complete">완료</system:String>
+    <system:String x:Key="key_all">전체</system:String>
+    <system:String x:Key="key_search">검색</system:String>
+    <system:String x:Key="key_status">상태</system:String>
+    <system:String x:Key="key_test_target">테스트 대상</system:String>
+    <system:String x:Key="key_test_name">테스트 명</system:String>
+    <system:String x:Key="key_customer">의뢰업체</system:String>
+    <system:String x:Key="key_reg_no">접수 번호</system:String>
+    <system:String x:Key="key_reg_date">접수 일자</system:String>
+    <system:String x:Key="key_reg_no2">접수 번호</system:String>
+    <system:String x:Key="key_reg_date2">접수 일자</system:String>
+    <system:String x:Key="key_cust_no">고객 번호</system:String>
+    <system:String x:Key="key_registration_info">접수 정보</system:String>
+    <system:String x:Key="key_customer_address">의뢰업체 주소</system:String>
+    <system:String x:Key="key_tester">시험자</system:String>
+    <system:String x:Key="key_tech_manager">시험 관리자</system:String>
+    <system:String x:Key="key_qualification">화원 검증</system:String>
+    <system:String x:Key="key_standard">표준 규격</system:String>
+    <system:String x:Key="key_temperature">온도 (℃)</system:String>
+    <system:String x:Key="key_chamber_temperature">챔버 온도 (℃)</system:String>
+    <system:String x:Key="key_time">시간 (h)</system:String>
+    <system:String x:Key="key_time_s">시간 (s)</system:String>
+    <system:String x:Key="key_monitoring">모니터링</system:String>
+    <system:String x:Key="key_test">시험</system:String>
+    <system:String x:Key="key_on">On</system:String>
+    <system:String x:Key="key_off">Off</system:String>
+    <system:String x:Key="key_ignition">점화</system:String>
+    <system:String x:Key="key_time2">시간 (초)</system:String>
+    <system:String x:Key="key_drift">온도 변동</system:String>
+    <system:String x:Key="key_max_dev">최대 편차</system:String>
+    <system:String x:Key="key_avg_temp">평균 온도</system:String>
+    <system:String x:Key="key_specimen">시편</system:String>
+    <system:String x:Key="key_center">중심</system:String>
+    <system:String x:Key="key_surface">표면</system:String>
+    <system:String x:Key="key_height">높이</system:String>
+    <system:String x:Key="key_height_mm">높이 (mm)</system:String>
+    <system:String x:Key="key_1st">1차</system:String>
+    <system:String x:Key="key_2nd">2차</system:String>
+    <system:String x:Key="key_laboratory">시험실</system:String>
+    <system:String x:Key="key_humidity">습도 (%)</system:String>
+    <system:String x:Key="key_percent">%</system:String>
+    <system:String x:Key="key_percent2">(%)</system:String>
+    <system:String x:Key="key_minutes">분</system:String>
+    <system:String x:Key="key_unit_temp">(℃)</system:String>
+    <system:String x:Key="key_unit_temp2">℃</system:String>
+    <system:String x:Key="key_unit_gram">g</system:String>
+    <system:String x:Key="key_result">결과</system:String>
+    <system:String x:Key="key_average">평균</system:String>
+    <system:String x:Key="key_measure">측정</system:String>
+    <system:String x:Key="key_number_of_test">시험 횟수</system:String>
+    <system:String x:Key="key_test_date">시험 일자</system:String>
+    <system:String x:Key="key_alarm">알람</system:String>
+    <system:String x:Key="key_no">No.</system:String>
+    <system:String x:Key="key_add">추가</system:String>
+    <system:String x:Key="key_applied_value">표준값</system:String>
+    <system:String x:Key="key_indicated_value">지시값</system:String>
+    <system:String x:Key="key_transmission">투과율 (%)</system:String>
+    <system:String x:Key="key_air">공기 (Cm³/min)</system:String>
+    <system:String x:Key="key_propane">프로판 (Cm³/min)</system:String>
+    <system:String x:Key="key_diff_pressure">차압 (kPa)</system:String>
+    <system:String x:Key="key_heatflux">복사 열류량 (kW/m²)</system:String>
+    <system:String x:Key="key_filter">Filter</system:String>
+    <system:String x:Key="key_clear">Clear</system:String>
+    <system:String x:Key="key_dark">Dark</system:String>
+    <system:String x:Key="key_information">정보</system:String>
+    <system:String x:Key="key_testing_mode">셔터 모드</system:String>
+    <system:String x:Key="key_radiometer_detail">Radiometer (mV) - 온도 (℃) - 열량 (W/Cm²)</system:String>
+    <system:String x:Key="key_copper_disk">Copper Disk (mV)</system:String>
+    <system:String x:Key="key_name">이름</system:String>
+    <system:String x:Key="key_operator">시험자</system:String>
+    <system:String x:Key="key_manager">관리자</system:String>
+    <system:String x:Key="key_product_name">제품명</system:String>
+    <system:String x:Key="key_manufacture_supplier">제조자 / 공급자</system:String>
+    <system:String x:Key="key_pressure">압력 (kPa)</system:String>
+    <system:String x:Key="key_irradiance">복사열</system:String>
+    <system:String x:Key="key_irradiance2">복사열 (kW/m²)</system:String>
+    <system:String x:Key="key_zero">Zero</system:String>
+    <system:String x:Key="key_span">Span</system:String>
+    <system:String x:Key="key_mass">질량 (g)</system:String>
+    <system:String x:Key="key_open">Open</system:String>
+    <system:String x:Key="key_close">Close</system:String>
+    <system:String x:Key="key_velocity">유속 (m/s)</system:String>
+    <system:String x:Key="key_good">정상</system:String>
+    <system:String x:Key="key_bad">오류</system:String>
+    <system:String x:Key="key_up">위</system:String>
+    <system:String x:Key="key_down">아래</system:String>
+    <system:String x:Key="key_length">길이</system:String>
+    <system:String x:Key="key_diameter">지름</system:String>
+    <system:String x:Key="key_burner_tc">버너 열전대</system:String>
+    <system:String x:Key="key_chamber_tc">챔버 열전대</system:String>
+    <system:String x:Key="key_flowrate">유량 (L/min)</system:String>
+    <system:String x:Key="key_custom">사용자정의</system:String>
+    <system:String x:Key="key_fan_flowrate">팬 유속 (m³/min)</system:String>
+    <system:String x:Key="key_nd_filter01">0.1</system:String>
+    <system:String x:Key="key_nd_filter02">0.2</system:String>
+    <system:String x:Key="key_nd_filter03">0.3</system:String>
+    <system:String x:Key="key_nd_filter05">0.5</system:String>
+    <system:String x:Key="key_nd_filter07">0.7</system:String>
+    <system:String x:Key="key_nd_filter10">1.0</system:String>
+
+    <system:String x:Key="key_title_filter">필터</system:String>
+    <system:String x:Key="key_title_transmission">투과율</system:String>
+    <system:String x:Key="key_title_od">OD</system:String>
+    <system:String x:Key="key_title_od_error">ODError(%)</system:String>
+   
+    <system:String x:Key="key_transmission2">투과율</system:String>
+    
+    <system:String x:Key="key_title_temperature">온도</system:String>
+    <system:String x:Key="key_average_temperature">평균</system:String>
+    <system:String x:Key="key_max_dev_temperature">최대 편차</system:String>
+    <system:String x:Key="key_drift_temperature">Drift</system:String>
+    
+    <system:String x:Key="key_toluene_parameter">보정된 흡수율</system:String>
+    
+    <system:String x:Key="key_transmission_absorbance">투과율 &amp; 흡수율(%)</system:String>
+
+    <system:String x:Key="key_major_axis">주축 (mm)</system:String>
+    <system:String x:Key="key_minor_axis">단축 (mm)</system:String>
+    <system:String x:Key="key_cable_type">케이블 형태</system:String>
+    <system:String x:Key="key_test_pieces_count">시험 조각의 개수</system:String>
+
+    <system:String x:Key="key_toluene_content">톨루엔 함량</system:String>
+    
+    <system:String x:Key="key_target">목표 투과율</system:String>
+    <system:String x:Key="key_absorbance">흡수율</system:String>
+    
+    <system:String x:Key="key_water_type_spray">물 분무</system:String>
+    <system:String x:Key="key_water_type_jet">물 분사</system:String>
+
+    <system:String x:Key="key_water_start_time">물 분사 시작 (분)</system:String>
+    <system:String x:Key="key_water_spray_time">물 분사 시간 (초)</system:String>
+    <system:String x:Key="key_water_spray_interval">물 분사 간격 (초)</system:String>
+    <system:String x:Key="key_water_spray_total">물 분사 총 횟수</system:String>
+
+    <system:String x:Key="unit_irradiance">(kW/m²)</system:String>
+    <system:String x:Key="unit_temperature">(℃)</system:String>
+    <system:String x:Key="unit_mass_g">(g)</system:String>
+    <system:String x:Key="unit_mass_kg">(Kg)</system:String>
+    <system:String x:Key="unit_voltage">(V)</system:String>
+    <system:String x:Key="unit_length_mm">(mm)</system:String>
+    <system:String x:Key="unit_length_cm">(Cm)</system:String>
+    <system:String x:Key="unit_length_m">(m)</system:String>
+    <system:String x:Key="unit_flowrate_lm">(L/min)</system:String>
+    <system:String x:Key="unit_flowrate_ms">(㎥/s)</system:String>
+    <system:String x:Key="unit_percentage">(%)</system:String>
+    <system:String x:Key="unit_pressure_pa">(Pa)</system:String>
+    <system:String x:Key="unit_ppm">(ppm)</system:String>
+    <system:String x:Key="unit_time_ms">(ms)</system:String>
+    <system:String x:Key="unit_time_s">(s)</system:String>
+    <system:String x:Key="unit_time_m">(m)</system:String>
+    <system:String x:Key="unit_time_h">(h)</system:String>
+    <system:String x:Key="unit_spr">(m²)</system:String>
+    <system:String x:Key="unit_spr_area">(m²/m²)</system:String>
+    <system:String x:Key="unit_mass_flow_rate">(kg/s)</system:String>
+    <system:String x:Key="unit_kw">(kW)</system:String>
+    <system:String x:Key="unit_na">(-)</system:String>
+    <system:String x:Key="unit_velocity">(m/s)</system:String>
+    <system:String x:Key="unit_water_flowrate">(L/m²/s)</system:String>
+
+    <system:String x:Key="unit_toluene_parameter">(m²)</system:String>
+    <system:String x:Key="unit_flowrate_mm">(㎥/min)</system:String>
+    <system:String x:Key="unit_flowrate_cmm">CMM (㎥/min)</system:String>
+
+    <system:String x:Key="btn_zero">Zero &#x0a;(0%)</system:String>
+    <system:String x:Key="btn_span">Span &#x0a;(100%)</system:String>
+
+    <system:String x:Key="btn_filter_zero">Zero</system:String>
+    <system:String x:Key="btn_filter_span">Span</system:String>
+
+    <system:String x:Key="btn_new">신규</system:String>
+    <system:String x:Key="btn_save">저장</system:String>
+    <system:String x:Key="btn_open">열기</system:String>
+    <system:String x:Key="btn_close">닫기</system:String>
+    <system:String x:Key="btn_next">다음</system:String>
+    <system:String x:Key="btn_back">뒤로</system:String>
+    <system:String x:Key="btn_cancel">취소</system:String>
+    <system:String x:Key="btn_report">리포트</system:String>
+    <system:String x:Key="btn_test">테스트</system:String>
+    <system:String x:Key="btn_apply">적용</system:String>
+    <system:String x:Key="btn_delete">삭제</system:String>
+    <system:String x:Key="btn_up">상승</system:String>
+    <system:String x:Key="btn_down">하강</system:String>
+    <system:String x:Key="btn_start">시작</system:String>
+    <system:String x:Key="btn_stop">종료</system:String>
+    <system:String x:Key="btn_pause">중지</system:String>
+    <system:String x:Key="btn_clear">초기화</system:String>
+    <system:String x:Key="btn_clear_chart">챠트 초기화</system:String>
+    <system:String x:Key="btn_continue">계속</system:String>
+    <system:String x:Key="btn_reservation">예약</system:String>
+    <system:String x:Key="btn_change">변경</system:String>
+    <system:String x:Key="btn_view">자세히</system:String>
+    <system:String x:Key="btn_save_continue">저장 &amp; 계속</system:String>
+    <system:String x:Key="btn_save_next">저장 &amp; 다음</system:String>
+    <system:String x:Key="btn_save_close">저장 &amp; 종료</system:String>
+    <system:String x:Key="btn_calculate">계산</system:String>
+    <system:String x:Key="btn_front">Front</system:String>
+    <system:String x:Key="btn_rear">Rear</system:String>
+    <system:String x:Key="btn_filter">필터</system:String>
+    
+    <system:String x:Key="btn_qualification">검증</system:String>
+    <system:String x:Key="btn_qualification_desc">검증진행</system:String>
+
+    <system:String x:Key="btn_new_desc">새로운 작업을 생성</system:String>
+    <system:String x:Key="btn_save_desc">현재 작업을 저장</system:String>
+    <system:String x:Key="btn_close_desc">현재 작업을 종료</system:String>
+    <system:String x:Key="btn_next_desc">다음 작업으로 이동</system:String>
+    <system:String x:Key="btn_back_desc">이전 작업으로 이동</system:String>
+    <system:String x:Key="btn_cancel_desc">현재 작업을 취소</system:String>
+    <system:String x:Key="btn_report_desc">테스트 결과 확인</system:String>
+    <system:String x:Key="btn_test_desc">테스트 진행</system:String>
+    <system:String x:Key="btn_delete_desc">현재 작업 삭제</system:String>
+    <system:String x:Key="btn_continue_desc">추가 시험을 진행</system:String>
+    <system:String x:Key="btn_reservation_desc">Reserve the job</system:String>
+    <system:String x:Key="btn_view_desc">결과 확인</system:String>
+    <system:String x:Key="btn_save_continue_desc">저장 후 테스트 진행</system:String>
+    <system:String x:Key="btn_save_next_desc">저장 후 다음 작업</system:String>
+    <system:String x:Key="btn_save_close_desc">저장 후 종료</system:String>
+    <system:String x:Key="btn_calculate_desc">결과 계산</system:String>
+    <system:String x:Key="btn_clear_desc">결과 초기화</system:String>
+    <system:String x:Key="btn_clear_chart_desc">그래프 데이터 초기화</system:String>
+    <system:String x:Key="btn_filter_desc">필터 교정</system:String>
+
+    <system:String x:Key="popup_common_desc">관리자 이외에는 수정하지 마십시오.</system:String>
+    <system:String x:Key="popup_common_alarm_msg">버너 확인!</system:String>
+
+    <system:String x:Key="msg_confirm">확인</system:String>
+    <system:String x:Key="msg_warning">경고</system:String>
+    <system:String x:Key="msg_error">오류</system:String>
+
+    <system:String x:Key="msg_title_check_data">테스트 데이터 확인</system:String>
+    <system:String x:Key="msg_title_quit_app">어플리케이션 종료</system:String>
+    <system:String x:Key="msg_title_quit_popup">화면 종료</system:String>
+    <system:String x:Key="msg_title_save">저장</system:String>
+	<system:String x:Key="msg_title_delete">삭제</system:String>
+	
+    <system:String x:Key="msg_input_missing">입력항목이 누락되었습니다. 확인 후 저장하십시오.</system:String>
+    <system:String x:Key="msg_invalid_item">부적합한 테스트 항목이 있습니다.</system:String>
+    <system:String x:Key="msg_quit_app">테스트 중에는 어플리케이션을 종료할 수 없습니다.</system:String>
+    <system:String x:Key="msg_quit_app2">어플리케이션을 종료하시겠습니까?</system:String>
+    <system:String x:Key="msg_run_menu">테스트 중에는 메뉴를 실행할 수 없습니다.</system:String>
+    <system:String x:Key="msg_quit_menu">실행중인 화면을 종료하시겠습니까?</system:String>
+    <system:String x:Key="msg_save_data">저장하시겠습니까?</system:String>
+    <system:String x:Key="msg_required_data">필수 항목을 입력 하십시오.</system:String>
+    <system:String x:Key="msg_save_complete">저장 작업이 완료되었습니다.</system:String>
+    <system:String x:Key="msg_save_error">저장 작업 중 오류가 발생하였습니다.</system:String>
+    <system:String x:Key="msg_test_confirm">테스트를 진행하시겠습니까?</system:String>
+	<system:String x:Key="msg_delete_data">삭제하시겠습니까?</system:String>
+    <system:String x:Key="msg_delete_warning">테스트 결과가 존재하여 삭제할 수 없습니다.</system:String>
+    <system:String x:Key="msg_calib_missing">교정 작업이 완료되지 않았습니다.</system:String>
+
+    <system:String x:Key="msg_title_check_ligth_calibration">Zero/Span 확인</system:String>
+    <system:String x:Key="msg_invalid_light_calibration">광원 교정 작업이 완료되지 않았습니다.</system:String>
+
+    <system:String x:Key="msg_select_polynomial">차수를 선택하십시오.</system:String>
+    <system:String x:Key="msg_all_nd_filter">모든 ND-Filter에 대한 측정을 수행하십시오.</system:String>
+    <system:String x:Key="msg_perform_spray">분무 버너 교정을 먼저 수행하십시오.</system:String>
+    
+    <system:String x:Key="msg_report_yes">Yes</system:String>
+    <system:String x:Key="msg_report_no">No</system:String>
+    <system:String x:Key="msg_report_na">N/A</system:String>
+    <system:String x:Key="msg_report_pass">PASS</system:String>
+    <system:String x:Key="msg_report_fail">FAIL</system:String>
+    <system:String x:Key="msg_report_no_pass">NO PASS</system:String>
+    <system:String x:Key="msg_report_created">Report 파일이 생성되었습니다.</system:String>
+    <system:String x:Key="msg_report_error">Report 파일 생성 중에 오류가 발생하였습니다.</system:String>
+    <system:String x:Key="msg_report_error_excel">오류: 엑셀 파일을 생성할 수 없습니다.</system:String>
+    <system:String x:Key="msg_report_no_data">레포트 생성하기 위한 데이터가 없습니다.</system:String>
+
+    <system:String x:Key="popup_channel_setting_title">시스템 - 채절 정보</system:String>
+    <system:String x:Key="popup_channel_setting_desc">통신을 위한 채널 정보를 설정.</system:String>
+    <system:String x:Key="popup_channel_setting_copy_clipboard">클립보드 복사</system:String>
+    <system:String x:Key="popup_channel_setting_load_file">파일 가져오기...</system:String>
+
+    <system:String x:Key="popup_config_setting_title">시스템 - 설정 정보</system:String>
+    <system:String x:Key="popup_config_setting_desc">시스템 속성 값을 설정합니다.</system:String>
+
+    <system:String x:Key="popup_control_panel_title">제어판</system:String>
+    <system:String x:Key="popup_control_panel_desc1">기능 점검을 위한 화면입니다.</system:String>
+    <system:String x:Key="popup_control_panel_air">공기 유량 (L/min)</system:String>
+    <system:String x:Key="popup_control_panel_gas">가스 유량 (L/min)</system:String>
+    <system:String x:Key="popup_control_panel_title_heat">열원</system:String>
+    <system:String x:Key="popup_control_panel_title_circuit">회로 보존성</system:String>
+    <system:String x:Key="popup_control_panel_title_shock">충격 발생 장치</system:String>
+    <system:String x:Key="popup_control_panel_title_water">워터 스프링클러</system:String>
+    <system:String x:Key="popup_control_panel_tc1">열전대-1</system:String>
+    <system:String x:Key="popup_control_panel_tc2">열전대-2</system:String>
+    <system:String x:Key="popup_control_panel_burner_tc">버너 온도 (℃)</system:String>
+
+    <system:String x:Key="popup_control_panel_title_chamber">챔버</system:String>
+    
+    <system:String x:Key="popup_control_panel_minimum_transmission">최소 투과율</system:String>
+    <system:String x:Key="popup_control_panel_maximum_absorbance">최대 흡수율</system:String>
+    <system:String x:Key="popup_control_panel_minimum_transmission_time">최소 투과율 시간</system:String>
+    <system:String x:Key="popup_control_panel_fan_air_flowrate">팬 유량 (m³/min)</system:String>
+    <system:String x:Key="popup_control_panel_chamber">챔버</system:String>
+    <system:String x:Key="popup_control_panel_chamber_tc">챔버 온도 (℃)</system:String>
+    <system:String x:Key="popup_control_panel_transmission">투과율 (%)</system:String>
+    <system:String x:Key="popup_control_panel_absorbance">흡수율</system:String>
+
+
+    <system:String x:Key="popup_control_panel_title_water_spray">워터 스프레이</system:String>
+    <system:String x:Key="popup_control_panel_title_water_jet">워터 제트</system:String>
+
+    <system:String x:Key="popup_blank_test_title">공시험 : 챔버 내부 온도 유지(25±5℃)</system:String>
+    <system:String x:Key="popup_light_title">광원</system:String>
+    <system:String x:Key="popup_light_desc">광원</system:String>
+    <system:String x:Key="popup_filter_title">광학 필터 점검</system:String>
+    <system:String x:Key="popup_filter_calib_title">필터 교정</system:String>
+    <system:String x:Key="popup_smoke_ventilation_title">연기 배출</system:String>
+    
+    <system:String x:Key="popup_calib_prop_title">신규 교정 정보</system:String>
+    <system:String x:Key="popup_calib_prop_desc">교정에 대한 상세 정보입니다.</system:String>
+    <system:String x:Key="popup_calib_prop_custom">사용자 정의</system:String>
+    <system:String x:Key="popup_calib_prop_tc_count">열전대 수</system:String>
+    <system:String x:Key="popup_calib_prop_valid_temperature">최소,최대 온도값 설정이 잘못되었습니다.</system:String>
+    <system:String x:Key="popup_calib_prop_valid_max_diff">최대 온도편차값 설정이 잘못되었습니다.</system:String>
+
+    <system:String x:Key="popup_registration_desc">접수번호 관리</system:String>
+    <system:String x:Key="popup_registration_delete_confirm">현재 등록 정보를 삭제하시겠습니까?</system:String>
+    <system:String x:Key="popup_registration_report_msg">선택하신 접수번호는 시험이 수행되지 않았습니다.</system:String>
+
+    <system:String x:Key="popup_qualification_registration_desc">화원 검증 관리.</system:String>
+    
+    <system:String x:Key="popup_new_qualification_registration_title">신규 검증 접수등록</system:String>
+    <system:String x:Key="popup_new_qualification_registration_toluene">톨루엔</system:String>
+    <system:String x:Key="popup_qualification_absorbance_range">표준 흡수율 범위</system:String>
+    <system:String x:Key="popup_new_qualification_toluene4_desc">4% : 0.18 ~ 0.26 m²</system:String>
+    <system:String x:Key="popup_new_qualification_toluene10_desc">10% : 0.80 ~ 1.20 m²</system:String>
+
+    <system:String x:Key="popup_toluene4_text">4%</system:String>
+    <system:String x:Key="popup_toluene10_text">10%</system:String>
+
+    <system:String x:Key="popup_new_registration_title">신규 접수등록</system:String>
+    <system:String x:Key="popup_new_registration_sponsor">의뢰자</system:String>
+    <system:String x:Key="popup_new_registration_product_info">제품 정보</system:String>
+    <system:String x:Key="popup_new_registration_product_name">제품 이름</system:String>
+    <system:String x:Key="popup_new_registration_test_info">정보</system:String>
+    <system:String x:Key="popup_new_registration_condition">테스트 조건</system:String>
+    <system:String x:Key="popup_new_registration_test_result">테스트 결과</system:String>
+
+    <system:String x:Key="popup_new_registration_qualification_condition">검증 조건</system:String>
+    <system:String x:Key="popup_new_registration_qualification_result">검증 결과</system:String>
+    <system:String x:Key="popup_new_registration_max_qualification_duration">최대 검증 시간(min)</system:String>
+    
+    <system:String x:Key="popup_new_registration_max_test_duration">최대 시험 시간(min)</system:String>
+    <system:String x:Key="popup_new_registration_cable_type">케이블 형태</system:String>
+    <system:String x:Key="popup_new_registration_cable_diameter">지름 (mm)</system:String>
+    <system:String x:Key="popup_new_registration_cable_length">케이블 길이 (m)</system:String>
+    <system:String x:Key="popup_new_registration_cable_major_axis">주축 (mm)</system:String>
+    <system:String x:Key="popup_new_registration_cable_minor_axis">단축(mm)</system:String>
+    <system:String x:Key="popup_new_registration_test_pieces">시험 조각의 개수</system:String>
+    <system:String x:Key="popup_new_registration_number_of_cables">케이블 개수</system:String>
+    
+    <system:String x:Key="popup_blank_test_out_damper">Out Damper</system:String>
+    <system:String x:Key="popup_blank_test_in_damper">In Damper</system:String>
+    <system:String x:Key="popup_blank_test_fan">Fan</system:String>
+
+    <system:String x:Key="popup_new_registration_diameter">지름</system:String>
+    <system:String x:Key="popup_new_registration_cables">시편의수</system:String>
+    <system:String x:Key="popup_new_registration_bundles">다발의수</system:String>
+    <system:String x:Key="popup_new_registration_cables_40_over">D&gt;40</system:String>
+    <system:String x:Key="popup_new_registration_cables_20to40">20&lt;D≤40</system:String>
+    <system:String x:Key="popup_new_registration_cables_10to20">10&lt;D≤20</system:String>
+    <system:String x:Key="popup_new_registration_cables_5to10">5&lt;D≤10</system:String>
+    <system:String x:Key="popup_new_registration_cables_1to5">1≤D≤5</system:String>
+    <system:String x:Key="popup_new_registration_cables_1to10">1≤D≤10</system:String>
+    <system:String x:Key="popup_new_registration_cables_annex">* 1 bundles = 7 Cables.</system:String>
+    <system:String x:Key="popup_new_registration_flat_annex0">* (Major Axis)/(Minor Axis)≤3 : </system:String>
+    <system:String x:Key="popup_new_registration_flat_annex1">Diameter = Minor Axis</system:String>
+    <system:String x:Key="popup_new_registration_flat_annex2">* 3≤(Major Axis)/(Minor Axis)≤16 :</system:String>
+    <system:String x:Key="popup_new_registration_flat_annex3">Diameter = Perimeter / (2 * 3.14(π))</system:String>
+
+    <system:String x:Key="popup_nd_filter_title">교정 - 중성 광학밀도 필터</system:String>
+    <system:String x:Key="popup_nd_filter_desc">측정된 광 수신기 신호로 계산된 광학 밀도는 필터 이론값의 5% 또는 ±0.01 이내여야 합니다.</system:String>
+    <system:String x:Key="popup_nd_filter_0">(0%)</system:String>
+    <system:String x:Key="popup_nd_filter_100">(100%)</system:String>
+    <system:String x:Key="popup_nd_filter_least_square">최소제곱 다항식 피팅</system:String>
+    <system:String x:Key="popup_nd_filter_filters">중성 광학밀도 필터</system:String>
+    <system:String x:Key="popup_nd_filter_polynomial">다항식</system:String>
+    <system:String x:Key="popup_nd_filter_intercept">절편</system:String>
+    <system:String x:Key="popup_nd_filter_1st_term">1차 항</system:String>
+    <system:String x:Key="popup_nd_filter_2nd_term">2차 항</system:String>
+    <system:String x:Key="popup_nd_filter_3rd_term">3차 항</system:String>
+    <system:String x:Key="popup_nd_filter_4th_term">4차 항</system:String>
+    <system:String x:Key="popup_nd_filter_calc_transmission">보정 투과율</system:String>
+    <system:String x:Key="popup_nd_filter_certi">검교정</system:String>
+    <system:String x:Key="popup_nd_filter_calc">계산 결과</system:String>
+    <system:String x:Key="popup_nd_filter_theoretical">이론값</system:String>
+    <system:String x:Key="popup_nd_filter_error">오차</system:String>
+    <system:String x:Key="popup_nd_filter_update_filter">중성 광학필터 검교정 결과 수정.</system:String>
+    <system:String x:Key="popup_nd_filter_no_compensation">보정하지 않음.</system:String>
+    
+    <system:String x:Key="popup_qualification_prop_title">신규 검증 정보</system:String>
+    
+    <system:String x:Key="popup_test_prop_title">신규 시험 정보</system:String>
+    <system:String x:Key="popup_test_prop_number">시편 회수</system:String>
+    <system:String x:Key="popup_test_prop_conditions">시편 상태</system:String>
+    <system:String x:Key="popup_test_prop_reg_info">접수 정보</system:String>
+    <system:String x:Key="popup_test_prop_product_material">제품 / 재료</system:String>
+    <system:String x:Key="popup_test_prop_h_distance">수평 거리 (mm)</system:String>
+    <system:String x:Key="popup_test_prop_h_distance2">수평 거리</system:String>
+    <system:String x:Key="popup_test_prop_v_distance">수직 거리 (mm)</system:String>
+    <system:String x:Key="popup_test_prop_v_distance2">수직 거리</system:String>
+    <system:String x:Key="popup_test_prop_flame_calibration">열원 검증 정보</system:String>
+
+    <system:String x:Key="popup_test_stop_condition">종료 조건</system:String>
+    
+    <system:String x:Key="popup_fan_flowrate">Air: 160 ± 8 (L/min), Gas: 10 ± 0.4 (L/min)</system:String>
+    
+    <system:String x:Key="popup_flame_title">열원 검증</system:String>
+    <system:String x:Key="popup_flame_desc_custom_flowrate">공기, 가스: 온도에 맞추어 조절</system:String>
+    <system:String x:Key="popup_flame_desc_custom_temperature">평균온도: 사용자 정의</system:String>
+    <system:String x:Key="popup_flame_desc_custom_max_diff">최대 온도편차: 사용자 정의</system:String>
+    <system:String x:Key="popup_flame_desc_custom_distance">수평/수직거리: 온도에 맞추어 조절</system:String>
+    <system:String x:Key="popup_flame_air">공기</system:String>
+    <system:String x:Key="popup_flame_gas">가스</system:String>
+    <system:String x:Key="popup_flame_diff_30sec">온도편차. (30초 동안 평균)</system:String>
+    <system:String x:Key="popup_flame_max_diff_30sec">최대 온도편차. (30초 동안 평균)</system:String>
+
+    <system:String x:Key="popup_qualification_title">화원 검증</system:String>
+    <system:String x:Key="popup_test_title">시험</system:String>
+    <system:String x:Key="popup_test_desc">시험 시편을 시험 챔버에 배치하고, 연기를 생성하기 위해 알코올을 점화한 후, 표준에 따라 광 투과율을 지속적으로 기록합니다.</system:String>
+    <system:String x:Key="popup_qualification_desc">챔버 내에서 발생되는 연기가 알코올/톨루엔 화원에 대해 표준 흡수값을 얻는지를 검증.</system:String>
+    <system:String x:Key="popup_test_air_gas_flowrate">공기 &amp; 가스 유량 (L/min)</system:String>
+    <system:String x:Key="popup_test_flame_time">불꽃 인가 시간 (min)</system:String>
+    <system:String x:Key="popup_test_ignition_check">버너 점화 체크</system:String>
+    <system:String x:Key="popup_test_standard_burner">표준 버너 / 사다리</system:String>
+    <system:String x:Key="popup_test_air_flowrate">공기 유량</system:String>
+    <system:String x:Key="popup_test_gas_flowrate">가스 유량</system:String>
+    <system:String x:Key="popup_test_target_flame">화염 온도 (℃)</system:String>
+    <system:String x:Key="popup_test_phase_conductor">상 도체</system:String>
+    <system:String x:Key="popup_test_neutral_conductor">중성선</system:String>
+    <system:String x:Key="popup_test_protective_conductor">보호 도체</system:String>
+    <system:String x:Key="popup_test_interval_sec">시간 간격 (sec)</system:String>
+    <system:String x:Key="popup_test_interval_min">시간 간격 (min)</system:String>
+    <system:String x:Key="popup_test_auto_stop">자동 종료</system:String>
+
+    <system:String x:Key="popup_toluene4_desc">4% 톨루엔 : 0.18(m²) ~ 0.26(m²)</system:String>
+    <system:String x:Key="popup_toluene10_desc">10% 톨루엔 : 0.80(m²) ~ 1.20(m²)</system:String>
+    <system:String x:Key="popup_fan_flowrate_desc">팬 유량: 7(m³/min) ~ 15(m³/min)</system:String>
+
+    <system:String x:Key="popup_test_absorbance">표준 흡수율 (m²)</system:String>
+    <system:String x:Key="popup_test_transmission">투과율 (%)</system:String>
+    <system:String x:Key="popup_test_transmission_absorbance">투과율 &amp; 흡수율 (%)</system:String>
+    <system:String x:Key="popup_test_chamber_temperature">온도 (℃)</system:String>
+    <system:String x:Key="popup_test_fan_flowrate">팬</system:String>
+    <system:String x:Key="popup_test_min_transmission">최소 투과율</system:String>
+    <system:String x:Key="popup_test_max_absorbance">최대 흡수율</system:String>
+    <system:String x:Key="popup_test_max_time">최대 흡수율 시간</system:String>
+    <system:String x:Key="popup_test_flameout_time">화염 소화 시간</system:String>
+
+
+    <system:String x:Key="popup_qualification_summary_title">검증 요약</system:String>
+    
+    <system:String x:Key="popup_test_summary_title">시험 요약</system:String>
+    <system:String x:Key="popup_test_summary_desc">최소 투과율과 시간을 확인한다.</system:String>
+    <system:String x:Key="popup_test_summary_damage">손상의 정도 (&#x2264; 2.5m)</system:String>
+    <system:String x:Key="popup_test_summary_time">모든 연소 또는 발화물의 꺼지는 데까지의 시간</system:String>
+    <system:String x:Key="popup_test_summary_evaluation">평가</system:String>
+    <system:String x:Key="popup_test_summary_breakdown_time">파열 시간 (sec)</system:String>
+
+    <system:String x:Key="popup_qualification_max_duration">최장 검증 시간 (min)</system:String>
+    
+    <system:String x:Key="popup_test_max_duration">최장 시험 시간 (min)</system:String>
+    <system:String x:Key="popup_test_summary_flameout_time">화염 소화 시간 (sec)</system:String>
+    <system:String x:Key="popup_test_summary_minimum_transmission">최소 투과율 (%)</system:String>
+    <system:String x:Key="popup_test_summary_maximum_absorbance">최대 흡수율 (m²)</system:String>
+    <system:String x:Key="popup_test_summary_minimum_transmission_time">최소 투과율 시간 (sec)</system:String>
+    <system:String x:Key="popup_test_summary_maximum_absorbance_time">최대 흡수율 시간 (sec)</system:String>
+    <system:String x:Key="popup_test_summary_corrected_absorbance">보정된 흡수율</system:String>
+
+    <system:String x:Key="popup_blank_test_invalid_temperature">챔버의 온도가 비정상적 입니다.</system:String>
+    <system:String x:Key="popup_light_calib_valid_zero_span">Zero/Span 설정이 완료되지 않았습니다.</system:String>
+
+    <system:String x:Key="msg_invalid_temperature">챔버의 온도 오류</system:String>
+    <system:String x:Key="popup_blank_test_invalid_temperature_continue">챔버의 온도가 비정상적 입니다. 계속 진행 진행 하시겠습니까?</system:String>
+    
+    <system:String x:Key="popup_light_calib_invalid_filter">필터 설정이 비정상 입니다.</system:String>
+    <system:String x:Key="popup_light_calib_zero_complete">광원 Zero 설정 완료.</system:String>
+    <system:String x:Key="popup_light_calib_span_complete">광원 Span 설정 완료.</system:String>
+    <system:String x:Key="popup_transmission_invalid_stabilization">투과율이 안정화 되지 않았습니다.</system:String>
+    <system:String x:Key="popup_temperature_invalid_stabilization">온도가 안정화 되지 않았습니다.</system:String>
+
+    <system:String x:Key="monitor_prev_result">최종 결과</system:String>
+    <system:String x:Key="monitor_curr_result">현재 결과</system:String>
+</ResourceDictionary>

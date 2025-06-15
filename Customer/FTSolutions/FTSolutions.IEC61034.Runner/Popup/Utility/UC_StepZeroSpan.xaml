@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="FTSolutions.IEC61034.Runner.Popup.Utility.UC_StepZeroSpan"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lego="clr-namespace:eccFramework.SharedLib.Lego.Brick;assembly=eccFramework.SharedLib.Lego"
+             xmlns:conv="clr-namespace:FTSolutions.IEC61034.Common.Converter;assembly=FTSolutions.IEC61034.Common"
+             xmlns:local="clr-namespace:FTSolutions.IEC61034.Runner.Popup.Utility"
+             Width="429" Height="429" RenderOptions.BitmapScalingMode="HighQuality" SnapsToDevicePixels="True">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/eccFramework.SharedLib.Core;component/Styles/PopupBrushes.xaml"/>
+                <ResourceDictionary Source="/FTSolutions.IEC61034.Runner;component/Styles/IEC61034Brushes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <conv:StepMotorConverter x:Key="stepMotorConverter" />
+
+            <Style x:Key="styleStatus" TargetType="lego:BulletPushButton">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Width" Value="64" />
+                <Setter Property="Height" Value="64" />
+                <Setter Property="BorderBrush" Value="{StaticResource state_valid_color}" />
+            </Style>
+
+            <Style x:Key="styleLabelTitle" TargetType="lego:eccTextBlock">
+                <Setter Property="Margin" Value="10,5" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Border Background="Transparent">
+            <Canvas Background="Transparent">
+                <Image Source="/FTSolutions.IEC61034.Runner;component/Images/step_motor.png"
+                       RenderOptions.BitmapScalingMode="HighQuality" SnapsToDevicePixels="True"/>
+
+                <lego:BulletPushButton Canvas.Left="19" Canvas.Top="183" Content="{DynamicResource btn_test}" Style="{StaticResource styleStatus}" GroupName="grpFilter"
+                                       IsChecked="{Binding DEVICE_MANAGER.DigitalInput.IsClearFilterOn, Mode=OneWay}"
+                                       Command="{Binding ChangeFilter}" CommandParameter="CLEAR" />
+                <lego:BulletPushButton Canvas.Left="67" Canvas.Top="300" Content="{DynamicResource key_dark}" Style="{StaticResource styleStatus}" GroupName="grpFilter"
+                                       IsChecked="{Binding DEVICE_MANAGER.DigitalInput.IsDarkFilterOn,  Mode=OneWay}"
+                                       Command="{Binding ChangeFilter}" CommandParameter="DARK" />                
+            </Canvas>
+        </Border>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,30">
+            <lego:eccTextBlock Text="{DynamicResource key_transmission}" Style="{StaticResource styleLabelTitle}" HorizontalAlignment="Center" />
+            <lego:Segment3X2 Value="{Binding DEVICE_MANAGER.AnalogInput.Transmission}" Height="55" Margin="2" HorizontalAlignment="Center"
+                             StateBrush="{StaticResource state_action_color}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

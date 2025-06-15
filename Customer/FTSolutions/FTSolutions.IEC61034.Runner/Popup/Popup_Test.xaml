@@ -1,0 +1,458 @@
+﻿<bw:BaseIEC61034Popup x:Class="FTSolutions.IEC61034.Runner.Popup.Popup_Test"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                        xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
+                        xmlns:ini="clr-namespace:FTSolutions.IEC61034.Common.Setting;assembly=FTSolutions.IEC61034.Common"
+                        xmlns:bw="clr-namespace:FTSolutions.IEC61034.Common.Base;assembly=FTSolutions.IEC61034.Common"
+                        xmlns:lego="clr-namespace:eccFramework.SharedLib.Lego.Brick;assembly=eccFramework.SharedLib.Lego"
+                        xmlns:conv="clr-namespace:FTSolutions.IEC61034.Common.Converter;assembly=FTSolutions.IEC61034.Common"
+                        xmlns:util="clr-namespace:FTSolutions.IEC61034.Runner.Popup.Utility"
+                        AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize"
+                        WindowStartupLocation="CenterScreen"
+                        Title="{DynamicResource main_header}" Width="1700" Height="1060">
+    <bw:BaseIEC61034Popup.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/eccFramework.SharedLib.Core;component/Styles/PopupBrushes.xaml"/>
+                <ResourceDictionary Source="/FTSolutions.IEC61034.Runner;component/Styles/IEC61034Brushes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <conv:BooleanToValidTextConverter x:Key="booleanToValidTextConverter" />
+            <conv:BooleanToValidColorConverter x:Key="booleanToValidColorConverter" />
+            <conv:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
+            <conv:ReverseBooleanConverter x:Key="reverseBooleanConverter" />
+            <conv:DisplaySecondsConverter x:Key="displaySecondsConverter" />
+            <conv:BooleanToReverseVisibilityConverter x:Key="booleanToReverseVisibilityConverter" />
+
+            <Style x:Key="ComboBoxItemStyle" TargetType="ComboBoxItem">
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+
+            <Style x:Key="styleResultInfo" TargetType="lego:eccTextBlock">
+                <Setter Property="Foreground" Value="{StaticResource state_action_color}" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Margin" Value="3" />
+            </Style>
+
+            <Style x:Key="styleAmbientLabel" TargetType="lego:eccTextBlock">
+                <Setter Property="Margin" Value="5,0" />
+                <Setter Property="Foreground" Value="{StaticResource state_action_color}" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+
+            <Style x:Key="styleKeyRadio" TargetType="lego:eccRadioButton">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="10,4" />
+                <Setter Property="Foreground" Value="DarkSeaGreen" />
+            </Style>
+
+            <Style x:Key="styleAmbientValue" TargetType="lego:eccTextBlock">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Margin" Value="5,0" />
+                <Setter Property="Foreground" Value="{StaticResource state_valid_color}" />
+            </Style>
+
+            <Style x:Key="styleKeyTitle" TargetType="lego:eccTextBlock">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="Foreground" Value="DarkSeaGreen" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+
+            <Style x:Key="styleWaterJetTitle" TargetType="lego:eccTextBlock">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="Foreground" Value="DarkSeaGreen" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+
+            <Style x:Key="styleWaterJetValue" TargetType="lego:eccTextBox">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Height" Value="20" />
+                <Setter Property="Margin" Value="5,1" />
+                <Setter Property="IsReadOnly" Value="True" />
+                <Setter Property="Background" Value="White" />
+                <Setter Property="BorderBrush" Value="{StaticResource state_dark_color}" />
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+
+            <Style x:Key="styleRegistrationLabel" TargetType="lego:eccTextBlock">
+                <Setter Property="Margin" Value="0,0,2,0" />
+                <Setter Property="Foreground" Value="Silver" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="13" />
+            </Style>
+
+            <Style x:Key="styleRegistrationValue" TargetType="lego:eccTextBox">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Height" Value="34" />
+                <Setter Property="Margin" Value="5,1" />
+                <Setter Property="IsReadOnly" Value="True" />
+                <Setter Property="Background" Value="White" />
+                <Setter Property="BorderBrush" Value="{StaticResource state_dark_color}" />
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+
+            <Style x:Key="styleResultTitle" TargetType="lego:eccTextBlock">
+                <Setter Property="Margin" Value="10,5" />
+                <Setter Property="Foreground" Value="{StaticResource state_action_color}" />
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </bw:BaseIEC61034Popup.Resources>
+
+    <DockPanel Background="{StaticResource popup_background}">
+        <!-- HEADER -->
+        <Border DockPanel.Dock="Top" Height="85" BorderThickness="1"
+                BorderBrush="{StaticResource popup_header_bb}" Background="{StaticResource popup_header_bg}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" BorderThickness="1" Background="White" Margin="5,16">
+                    <Image Source="pack://application:,,,/eccFramework.SharedLib.Core;component/Images/ftsolutions_logo.png" 
+                           RenderOptions.BitmapScalingMode="HighQuality" SnapsToDevicePixels="True" Margin="5" HorizontalAlignment="Right" />
+                </Border>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock FontSize="20" Text="{DynamicResource popup_test_title}" Style="{StaticResource headerLabelTitleStyle}" />
+                    <TextBlock Text="{DynamicResource popup_test_desc}" Style="{StaticResource headerLabelContentStyle}" TextWrapping="Wrap"/>
+                    <TextBlock Text="{DynamicResource popup_fan_flowrate_desc}" Style="{StaticResource headerLabelContentStyle}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3" Orientation="Horizontal">
+                    <DockPanel>
+                        <lego:SegmentFullTimer DockPanel.Dock="Left" Margin="15,0,5,0" Height="70"
+                                               Tick="{Binding TickTimerCommand}"
+                                               StartTimer="{Binding StartTimer}" StopTimer="{Binding StopTimer}"/>
+
+                        <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,0,0,0">
+                            <lego:PushButton DockPanel.Dock="Left" Content="{DynamicResource btn_start}" Width="70" Height="70" FontSize="18"
+                                             BorderBrush="{StaticResource state_valid_color}"
+                                             IsChecked="{Binding IsStartChecked}"/>
+                            <lego:PushButton DockPanel.Dock="Left" Content="{DynamicResource btn_stop}" Width="70" Height="70" Margin="10,0,0,0" FontSize="18"
+                                             BorderBrush="{StaticResource state_invalid_color}"
+                                             IsChecked="{Binding IsStopChecked}"/>
+                        </StackPanel>
+                    </DockPanel>
+
+                    <Border Grid.Column="2" Margin="10" BorderThickness="1" Background="{Binding SESSION_MANAGER.LogoBackground}" Width="200"> 
+                        <Image Source="{Binding SESSION_MANAGER.ClientLogoPath}" Margin="3" />
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <!-- FOOTER -->
+        <Border DockPanel.Dock="Bottom" Height="70" Padding="0,4,0,0" BorderThickness="1" 
+                BorderBrush="{StaticResource popup_footer_bb}" Background="{StaticResource popup_footer_bg}">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <ToggleButton x:Name="btnController" Background="Transparent" BorderThickness="0"
+                                  Width="60" Margin="10,0,0,0"
+                                  Style="{StaticResource SettingToggleButtonStyleKey}"
+                                  ContentTemplate="{StaticResource SettingToggleButtonContentTemplateKey}"/>
+                    <Popup IsOpen="{Binding ElementName=btnController, Path=IsChecked}"
+                           PlacementTarget="{Binding ElementName=btnController}"
+                           Placement="Top" StaysOpen="False" AllowsTransparency="True" HorizontalOffset="1" VerticalOffset="-3" >
+                        <Border BorderBrush="#cF8c8c8c" BorderThickness="1" Background="#cF000000">
+                            <util:UC_RemoteControl />
+                        </Border>
+                    </Popup>
+                </StackPanel>
+
+                <StackPanel IsEnabled="{Binding IsStopChecked}" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <lego:FancyButton Style="{StaticResource fancyButtonStyle}" Height="60"
+                                          FuncType="Back" Title="{DynamicResource btn_back}" SubTitle="{DynamicResource btn_back_desc}"
+                                          Command="{Binding BackClick}"/>
+                    <lego:FancyButton Style="{StaticResource fancyButtonStyle}" Height="60"
+                                      FuncType="Next" Title="{DynamicResource btn_next}" SubTitle="{DynamicResource btn_next_desc}"
+                                      Command="{Binding NextClick}" />
+                    <lego:FancyButton Style="{StaticResource fancyButtonStyle}" Height="60"
+                                      FuncType="Cancel" Title="{DynamicResource btn_cancel}" SubTitle="{DynamicResource btn_cancel_desc}"
+                                      Command="{Binding CancelClick}" />
+                </StackPanel>
+            </DockPanel>
+        </Border>
+        <!-- BODY -->
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="380"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Margin="0,1,6,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TabControl Grid.Row="0" Grid.Column="0" Background="#2D2D30" BorderThickness="1" TabStripPlacement="Top" Margin="3"
+                            ItemContainerStyle="{StaticResource chevronTabItemStyle}">
+                    <lego:MainTabItem FontSize="12" Header="{DynamicResource popup_test_transmission}" Width="200" Height="50" Background="{StaticResource popup_header_bg}">
+                        <d3:ChartPlotter Margin="5" LegendVisibility="Collapsed" LegendVisible="False" FontSize="10"
+                                         Background="{StaticResource graph_dark_bg}" Foreground="{StaticResource graph_dark_fg}" BorderBrush="{StaticResource graph_dark_bb}">
+                            <d3:LineGraph DataSource="{Binding TestItem_Test.Standard.SeriesTransmission.SeriesDataSource}" Stroke="{StaticResource dark_series_color_1}" StrokeThickness="1.5" />
+                            <!--<d3:LineGraph DataSource="{Binding TestItem_Test.Standard.SeriesAbsorbance.SeriesDataSource}" Stroke="{StaticResource dark_series_color_2}" StrokeThickness="1.5" />-->
+
+                            <d3:VerticalAxisTitle Content="{DynamicResource key_transmission}" FontSize="12" FontWeight="Bold"/>
+                            <d3:HorizontalAxisTitle Content="{DynamicResource key_time_s}" FontSize="12" FontWeight="Bold"/>
+                        </d3:ChartPlotter>
+                    </lego:MainTabItem>
+                </TabControl>
+                <Grid Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <lego:Segment3X2 Grid.Column="1" Height="40" Margin="3" StateBrush="{StaticResource dark_series_color_1}"
+                                             Value="{Binding  TestItem_Test.Standard.CurrentTransmission}" />
+                </Grid>
+
+                <TabControl Grid.Row="0" Grid.Column="1" Background="#2D2D30" BorderThickness="1" TabStripPlacement="Top" Margin="3"
+                            ItemContainerStyle="{StaticResource chevronTabItemStyle}">
+                    <lego:MainTabItem FontSize="12" Header="{DynamicResource popup_test_absorbance}" Width="200" Height="50" Background="{StaticResource popup_header_bg}">
+                        <d3:ChartPlotter Margin="5" LegendVisibility="Collapsed" LegendVisible="False" FontSize="10"
+                                         Background="{StaticResource graph_dark_bg}" Foreground="{StaticResource graph_dark_fg}" BorderBrush="{StaticResource graph_dark_bb}">
+                            <d3:LineGraph DataSource="{Binding TestItem_Test.Standard.SeriesAbsorbance.SeriesDataSource}" Stroke="{StaticResource dark_series_color_2}" StrokeThickness="1.5" />
+
+                            <d3:VerticalAxisTitle Content="{DynamicResource key_absorbance}" FontSize="12" FontWeight="Bold"/>
+                            <d3:HorizontalAxisTitle Content="{DynamicResource key_time_s}" FontSize="12" FontWeight="Bold"/>
+                        </d3:ChartPlotter>
+                    </lego:MainTabItem>
+                </TabControl>
+                <Grid Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <lego:Segment2X4 Grid.Column="1" Height="40" Margin="3" StateBrush="{StaticResource dark_series_color_2}"
+                                             Value="{Binding  TestItem_Test.Standard.CurrentAbsorbance}" />
+                </Grid>
+
+                <TabControl Grid.Row="1" Grid.Column="0" Background="#2D2D30" BorderThickness="1" TabStripPlacement="Top" Margin="5"
+                        ItemContainerStyle="{StaticResource chevronTabItemStyle}">
+                    <lego:MainTabItem FontSize="12" Header="{DynamicResource popup_test_chamber_temperature}" Width="172" Height="50" Background="{StaticResource popup_header_bg}">
+                        <d3:ChartPlotter Margin="5" LegendVisibility="Collapsed" LegendVisible="False" FontSize="10"
+                                     Background="{StaticResource graph_dark_bg}" Foreground="{StaticResource graph_dark_fg}" BorderBrush="{StaticResource graph_dark_bb}">
+                            <d3:LineGraph DataSource="{Binding TestItem_Test.Standard.SeriesChamberTC.SeriesDataSource}" Stroke="{StaticResource dark_series_color_3}" StrokeThickness="1.5"/>
+
+                            <d3:VerticalAxisTitle Content="{DynamicResource key_temperature}" FontSize="12" FontWeight="Bold"/>
+                            <d3:HorizontalAxisTitle Content="{DynamicResource key_time_s}" FontSize="12" FontWeight="Bold"/>
+                        </d3:ChartPlotter>
+                    </lego:MainTabItem>
+                </TabControl>
+                <Grid Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <lego:Segment3X2 Grid.Column="1" Height="40" Margin="3" StateBrush="{StaticResource dark_series_color_3}"
+                                             Value="{Binding  TestItem_Test.Standard.CurrentChamberTC}" />
+                </Grid>
+
+                <!--
+                <TabControl Grid.Row="1" Grid.Column="0" Background="#2D2D30" BorderThickness="1" TabStripPlacement="Top" Margin="5"
+                        ItemContainerStyle="{StaticResource chevronTabItemStyle}">
+                    <lego:MainTabItem FontSize="12" Header="{DynamicResource popup_test_fan_flowrate}" Width="172" Height="50" Background="{StaticResource popup_header_bg}">
+                        <d3:ChartPlotter Margin="5" LegendVisibility="Collapsed" LegendVisible="False" FontSize="10"
+                                     Background="{StaticResource graph_dark_bg}" Foreground="{StaticResource graph_dark_fg}" BorderBrush="{StaticResource graph_dark_bb}">
+                            <d3:LineGraph DataSource="{Binding TestItem_Test.Standard.SeriesFanFlowrate.SeriesDataSource}" Stroke="{StaticResource dark_series_color_4}" StrokeThickness="1.5"/>
+                            
+                            <d3:VerticalAxisTitle Content="{DynamicResource key_fan_flowrate}" FontSize="12" FontWeight="Bold"/>
+                            <d3:HorizontalAxisTitle Content="{DynamicResource key_time_s}" FontSize="12" FontWeight="Bold"/>
+                        </d3:ChartPlotter>
+                    </lego:MainTabItem>
+                </TabControl>
+                -->
+
+                <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" BorderThickness="3,1,1,3" BorderBrush="DarkOrange" Background="Black" Margin="4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="160"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="260"/>
+                                <ColumnDefinition Width="260"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="2" BorderBrush="DarkRed" Background="Black" Width="500" >
+                                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="8*"/>
+                                        <ColumnDefinition Width="126*"/>
+                                        <ColumnDefinition Width="89*"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <lego:eccTextBlock Grid.Row="0" Grid.Column="1" Text="{DynamicResource popup_test_min_transmission}" Style="{StaticResource styleResultInfo}" HorizontalAlignment="Right"/>
+                                    <lego:eccTextBox Grid.Row="0" Grid.Column="2" Width="120" Height="35" Style="{StaticResource styleRegistrationValue}"
+                                                 Text="{Binding TestItem_Test.Standard.MinTransmission}"/>
+                                    <lego:eccTextBlock Grid.Row="0" Grid.Column="3" Text="{DynamicResource unit_percentage}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                                    <lego:eccTextBlock Grid.Row="1" Grid.Column="1" Text="{DynamicResource popup_test_max_absorbance}" Style="{StaticResource styleResultInfo}" HorizontalAlignment="Right"/>
+                                    <lego:eccTextBox Grid.Row="1" Grid.Column="2" Width="120" Height="35" Style="{StaticResource styleRegistrationValue}"
+                                                 Text="{Binding TestItem_Test.Standard.MaxAbsorbance}"/>
+
+                                    <lego:eccTextBlock Grid.Row="2" Grid.Column="1" Text="{DynamicResource popup_test_max_time}" Style="{StaticResource styleResultInfo}" HorizontalAlignment="Right"/>
+                                    <lego:eccTextBox Grid.Row="2" Grid.Column="2" Width="120" Height="35" Style="{StaticResource styleRegistrationValue}"
+                                                 Text="{Binding TestItem_Test.Standard.MinTransmissionSecond}"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Border Grid.Column="1" BorderThickness="1,3,3,3" BorderBrush="DarkGoldenrod" Background="Black" ClipToBounds="True" Margin="3">
+                <DockPanel>
+                    <lego:eccTextBlock DockPanel.Dock="Top" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" Margin="2,20"
+                                       Text="{Binding TestItem_Test.Standard.StandardDesc}" Foreground="{StaticResource state_valid_color}"/>
+
+                    <lego:eccGroupBox DockPanel.Dock="Top" Tag="16" Header="{DynamicResource popup_test_stop_condition}" Margin="5,30,5,5" Height="130"
+                                      BorderBrush="{StaticResource groupbox_header_bg}" Background="{StaticResource popup_header_bg}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="6*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Orientation="Vertical">
+                                <lego:eccRadioButton Content="Auto" GroupName="grpCable" Style="{StaticResource styleKeyRadio}" FontSize="16" Width="Auto" VerticalAlignment="Center" Height="35"
+                                                 IsChecked="{Binding TestItem_Test.Standard.IsAutoStop}"/>
+                                <lego:eccRadioButton Content="Manual" GroupName="grpCable" Style="{StaticResource styleKeyRadio}" FontSize="16" Width="Auto" VerticalAlignment="Center" Height="35"
+                                                 IsChecked="{Binding TestItem_Test.Standard.IsManualStop}"/>
+                            </StackPanel>
+
+                            <lego:eccComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding TestDurations}" ItemContainerStyle="{StaticResource ComboBoxItemStyle}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedDuration, Mode=TwoWay}" Width="150" Height="35" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        </Grid>
+                    </lego:eccGroupBox>
+
+                    <!--
+                    <lego:eccGroupBox DockPanel.Dock="Top" Tag="16" Header="{DynamicResource popup_new_registration_number_of_cables}" Margin="5" Height="120"
+                                      Visibility="{Binding IsCableRound, Converter={StaticResource booleanToVisibilityConverter}}"
+                                      BorderBrush="{StaticResource groupbox_header_bg}" Background="{StaticResource popup_header_bg}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*"/>
+                                <RowDefinition Height="50*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+                            <lego:eccTextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource key_diameter}" Style="{StaticResource styleKeyTitle}"/>
+                            <lego:eccTextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource styleRegistrationValue}"
+                                                 Text="{Binding SESSION_MANAGER.IEC61034_DataSetTest.RegistrationInfo.CABLE_DIAMETER}"/>
+
+                            <lego:eccTextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource key_test_pieces_count}" Style="{StaticResource styleWaterJetTitle}"/>
+                            <lego:eccTextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource styleRegistrationValue}"
+                                                 Text="{Binding SESSION_MANAGER.IEC61034_DataSetTest.RegistrationInfo.TEST_PIECES_COUNT}"/>                            
+                        </Grid>
+                    </lego:eccGroupBox>
+
+                    <lego:eccGroupBox DockPanel.Dock="Top" Tag="16" Header="{DynamicResource popup_new_registration_number_of_cables}" Margin="5" Height="180"
+                                      Visibility="{Binding IsCableFlat, Converter={StaticResource booleanToVisibilityConverter}}"
+                                      BorderBrush="{StaticResource groupbox_header_bg}" Background="{StaticResource popup_header_bg}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"/>
+                                <ColumnDefinition Width="20*"/>       
+                            </Grid.ColumnDefinitions>
+
+                            <lego:eccTextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource key_minor_axis}" Style="{StaticResource styleWaterJetTitle}"/>
+                            <lego:eccTextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource styleRegistrationValue}"
+                                                 Text="{Binding SESSION_MANAGER.IEC61034_DataSetTest.RegistrationInfo.CABLE_MINOR_AXIS}"/>
+                            
+                            <lego:eccTextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource key_major_axis}" Style="{StaticResource styleKeyTitle}"/>
+                            <lego:eccTextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource styleRegistrationValue}"
+                                                 Text="{Binding SESSION_MANAGER.IEC61034_DataSetTest.RegistrationInfo.CABLE_MAJOR_AXIS}"/>
+
+                            <lego:eccTextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource key_diameter}" Style="{StaticResource styleKeyTitle}"/>
+                            <lego:eccTextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource styleRegistrationValue}"
+                                                 Text="{Binding SESSION_MANAGER.IEC61034_DataSetTest.RegistrationInfo.CABLE_DIAMETER}"/>
+
+                            <lego:eccTextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource key_test_pieces_count}" Style="{StaticResource styleWaterJetTitle}"/>
+                            <lego:eccTextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource styleRegistrationValue}"
+                                                 Text="{Binding SESSION_MANAGER.IEC61034_DataSetTest.RegistrationInfo.TEST_PIECES_COUNT}"/>
+                        </Grid>
+                    </lego:eccGroupBox>
+                    -->
+
+                    <lego:eccButton DockPanel.Dock="Top" Width="250" Height="80" FontSize="18" FontWeight="Bold" Margin="0,20,10,0"
+                                    Command="{Binding SetFlameoutTimeCommand}">
+                        <lego:eccTextBlock Text="{Binding FlameOutSecond}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </lego:eccButton>
+
+                    <!--
+                    <lego:eccButton Content="{Binding FlameOutSecond}" DockPanel.Dock="Top" Width="250" Height="80" FontSize="18" FontWeight="Bold" Margin="0,20,10,0"
+                                    Command="{Binding SetFlameoutTimeCommand}"/>
+
+                    
+                    <lego:RectActionButton Command="{Binding SetFlameoutTimeCommand}" DockPanel.Dock="Top" Width="370" Margin="5" Background="{StaticResource popup_header_bg}">
+                        <StackPanel>
+                            <TextBlock Text="{DynamicResource popup_test_summary_flameout_time}" Foreground="{StaticResource popup_textbox_fg}" FontWeight="ExtraBold" FontSize="18"  HorizontalAlignment="Center"/>
+                            <lego:Segment5 Height="70" Margin="10" StateBrush="{StaticResource state_invalid_color}"
+                                       Value="{Binding TestItem_Test.Standard.FlameoutSecond}" />
+                        </StackPanel>
+                    </lego:RectActionButton>  
+                    -->
+                    <StackPanel />
+                </DockPanel>
+            </Border>
+        </Grid>
+    </DockPanel>
+</bw:BaseIEC61034Popup>

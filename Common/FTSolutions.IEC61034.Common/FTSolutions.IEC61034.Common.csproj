@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08064828-91A9-4010-83A3-C1317856C140}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FTSolutions.IEC61034.Common</RootNamespace>
+    <AssemblyName>FTSolutions.IEC61034.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;IS_LOCAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DynamicDataDisplay">
+      <HintPath>..\..\..\..\_RefLib\DynamicDataDisplay.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicDataDisplay.Maps">
+      <HintPath>..\..\..\..\_RefLib\DynamicDataDisplay.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicDataDisplay.Markers">
+      <HintPath>..\..\..\..\_RefLib\DynamicDataDisplay.Markers.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicDataDisplay.Markers2">
+      <HintPath>..\..\..\..\_RefLib\DynamicDataDisplay.Markers2.dll</HintPath>
+    </Reference>
+    <Reference Include="eccFramework.SharedLib.Core">
+      <HintPath>..\..\..\..\_RefLib\eccFramework.SharedLib.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="eccFramework.SharedLib.GlobalType">
+      <HintPath>..\..\..\..\_RefLib\eccFramework.SharedLib.GlobalType.dll</HintPath>
+    </Reference>
+    <Reference Include="eccFramework.SharedLib.Lego">
+      <HintPath>..\..\..\..\_RefLib\eccFramework.SharedLib.Lego.dll</HintPath>
+    </Reference>
+    <Reference Include="eccFramework.SharedLib.Utility">
+      <HintPath>..\..\..\..\_RefLib\eccFramework.SharedLib.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.Common, Version=19.0.40.49152, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.DAQmx, Version=19.6.45.1, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=x86" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BaseIEC61034Device.cs" />
+    <Compile Include="Base\BaseIEC61034Popup.cs" />
+    <Compile Include="Base\BaseIEC61034ViewModel.cs" />
+    <Compile Include="Base\BaseQueryService.cs" />
+    <Compile Include="Converter\BooleanToValidColorConverter.cs" />
+    <Compile Include="Converter\BooleanToValidTextConverter.cs" />
+    <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converter\DisplaySecondsConverter.cs" />
+    <Compile Include="Converter\RegNoSpliterConverter.cs" />
+    <Compile Include="Converter\ReverseBooleanConverter.cs" />
+    <Compile Include="Converter\StatusCodeToColorConverter.cs" />
+    <Compile Include="Converter\StatusCodeToDescConverter.cs" />
+    <Compile Include="Converter\StepMotorConverter.cs" />
+    <Compile Include="DataType\IEC61034Const.cs" />
+    <Compile Include="DataType\IEC61034Enum.cs" />
+    <Compile Include="DataType\ReportQualificationData.cs" />
+    <Compile Include="DataType\ReportTestData.cs" />
+    <Compile Include="DataType\QualificationInfoData.cs" />
+    <Compile Include="DataType\TestInfoData.cs" />
+    <Compile Include="DataType\TypeChannelSetting.cs" />
+    <Compile Include="DataType\TypeConfigSetting.cs" />
+    <Compile Include="DataType\TypeNDFilter.cs" />
+    <Compile Include="DataType\TypePolynomial.cs" />
+    <Compile Include="DataType\TypeQualificationRegistration.cs" />
+    <Compile Include="DataType\TypeRegistration.cs" />
+    <Compile Include="DataType\UILabelConst.cs" />
+    <Compile Include="DeviceManager.cs" />
+    <Compile Include="Device\DeviceAnalogInput.cs" />
+    <Compile Include="Device\DeviceAnalogOutput.cs" />
+    <Compile Include="Device\DeviceDigitalInput.cs" />
+    <Compile Include="Device\DeviceDigitalOutput.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryService\ManagerQueryService.cs" />
+    <Compile Include="QueryService\QueryServiceQualification.cs" />
+    <Compile Include="QueryService\QueryServiceQualificationRegistration.cs" />
+    <Compile Include="QueryService\QueryServiceRegistration.cs" />
+    <Compile Include="QueryService\QueryServiceSystem.cs" />
+    <Compile Include="QueryService\QueryServiceTest.cs" />
+    <Compile Include="Result\CurrentMeasurement.cs" />
+    <Compile Include="Result\DataSetQualification.cs" />
+    <Compile Include="Result\DataSetTest.cs" />
+    <Compile Include="Result\QualificationSummary.cs" />
+    <Compile Include="Result\Qualification.cs" />
+    <Compile Include="Result\Test.cs" />
+    <Compile Include="Result\QualificationProperty.cs" />
+    <Compile Include="Result\TestProperty.cs" />
+    <Compile Include="Result\TestSummary.cs" />
+    <Compile Include="SessionManager.cs" />
+    <Compile Include="Setting\DbChannel.cs" />
+    <Compile Include="Setting\IniConfig.cs" />
+    <Compile Include="Setting\ZeroSpanMethod.cs" />
+    <Compile Include="Setting\LightMeasurementUtils.cs" />
+    <Compile Include="Setting\SettingManager.cs" />
+    <Compile Include="Standard\baseStandard.cs" />
+    <Compile Include="Standard\IEC61034.cs" />
+    <Compile Include="VirtualFactory.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

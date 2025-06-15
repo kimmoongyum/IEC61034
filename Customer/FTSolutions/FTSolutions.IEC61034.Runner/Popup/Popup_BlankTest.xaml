@@ -1,0 +1,294 @@
+﻿<bw:BaseIEC61034Popup x:Class="FTSolutions.IEC61034.Runner.Popup.Popup_BlankTest"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                      xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
+                      xmlns:ini="clr-namespace:FTSolutions.IEC61034.Common.Setting;assembly=FTSolutions.IEC61034.Common"
+                      xmlns:bw="clr-namespace:FTSolutions.IEC61034.Common.Base;assembly=FTSolutions.IEC61034.Common"                      
+                      xmlns:lego="clr-namespace:eccFramework.SharedLib.Lego.Brick;assembly=eccFramework.SharedLib.Lego"
+                      xmlns:conv="clr-namespace:FTSolutions.IEC61034.Common.Converter;assembly=FTSolutions.IEC61034.Common"  
+                      xmlns:util="clr-namespace:FTSolutions.IEC61034.Runner.Popup.Utility"
+                      AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize"
+                      WindowStartupLocation="CenterScreen"
+                      Title="{DynamicResource main_header}" Height="900" Width="900">
+    <bw:BaseIEC61034Popup.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/eccFramework.SharedLib.Core;component/Styles/PopupBrushes.xaml"/>
+                <ResourceDictionary Source="/FTSolutions.IEC61034.Runner;component/Styles/IEC61034Brushes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <conv:ReverseBooleanConverter x:Key="reverseBooleanConverter" />
+            <conv:BooleanToValidTextConverter x:Key="booleanToValidTextConverter" />
+            <conv:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
+            <conv:BooleanToValidColorConverter x:Key="booleanToValidColorConverter" />
+            <conv:BooleanToReverseVisibilityConverter x:Key="booleanToReverseVisibilityConverter" />
+
+            <Style TargetType="lego:eccTextBlock">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="Margin" Value="0,0,10,0" />
+            </Style>
+
+            <Style x:Key="styleTestLabel" TargetType="lego:eccTextBlock">
+                <Setter Property="Margin" Value="4" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+            
+            <Style x:Key="styleResultInfo" TargetType="lego:eccTextBlock">
+                <Setter Property="Foreground" Value="{StaticResource state_action_color}" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Margin" Value="3" />
+            </Style>
+            
+            <Style TargetType="lego:eccTextBox">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Height" Value="32" />
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="Foreground" Value="{StaticResource popup_textbox_fg}" />
+            </Style>
+
+            <Style x:Key="styleRadio" TargetType="lego:eccRadioButton">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="10,5" />
+            </Style>
+
+            <Style x:Key="styleTemperature" TargetType="lego:eccTextBox">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="TextMode" Value="Number" />
+                <Setter Property="Width" Value="200" />
+                <Setter Property="Height" Value="40" />
+                <Setter Property="Margin" Value="10,1" />
+                <Setter Property="IsReadOnly" Value="False" />
+                <Setter Property="BorderBrush" Value="{StaticResource state_none_color}" />
+                <Setter Property="Foreground" Value="{StaticResource state_valid_color}" />
+            </Style>
+
+            <Style x:Key="styleCheck" TargetType="lego:eccCheckBox">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="10,4" />
+            </Style>
+        </ResourceDictionary>
+    </bw:BaseIEC61034Popup.Resources>
+
+    <DockPanel Background="{StaticResource popup_background}">
+        <!-- HEADER -->
+        <Border DockPanel.Dock="Top" Height="85" BorderThickness="1"
+                BorderBrush="{StaticResource popup_header_bb}" Background="{StaticResource popup_header_bg}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" BorderThickness="1" Background="White" Margin="5,16">
+                    <Image Source="pack://application:,,,/eccFramework.SharedLib.Core;component/Images/ftsolutions_logo.png" 
+                           RenderOptions.BitmapScalingMode="HighQuality" SnapsToDevicePixels="True" Margin="5" HorizontalAlignment="Right" />
+                </Border>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="0,2,0,0">
+                    <TextBlock FontSize="14" Text="{DynamicResource popup_blank_test_title}" Style="{StaticResource headerLabelTitleStyle}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <Border Margin="10" BorderThickness="1" Background="{Binding SESSION_MANAGER.LogoBackground}">
+                        <Image Source="{Binding SESSION_MANAGER.ClientLogoPath}" Margin="3" />
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <!-- FOOTER -->
+        <Border DockPanel.Dock="Bottom" Height="70" Padding="0,4,0,0" BorderThickness="1" 
+                BorderBrush="{StaticResource popup_footer_bb}" Background="{StaticResource popup_footer_bg}">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <ToggleButton x:Name="btnController" Background="Transparent" BorderThickness="0"
+                                      Width="50" Margin="10,0,0,0"
+                                      Style="{StaticResource SettingToggleButtonStyleKey}"
+                                      ContentTemplate="{StaticResource SettingToggleButtonContentTemplateKey}"/>
+                    <Popup IsOpen="{Binding ElementName=btnController, Path=IsChecked}"
+                               PlacementTarget="{Binding ElementName=btnController}"
+                               Placement="Right" StaysOpen="False" AllowsTransparency="True" HorizontalOffset="1" VerticalOffset="-3" >
+                        <Border BorderBrush="#cF8c8c8c" BorderThickness="1" Background="#cF000000">
+                            <util:UC_RemoteControl />
+                        </Border>
+                    </Popup>
+                </StackPanel>
+
+                <StackPanel IsEnabled="{Binding IsStopChecked}" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <lego:FancyButton Style="{StaticResource fancyButtonStyle}" Height="60"
+                                          FuncType="Back" Title="{DynamicResource btn_back}" SubTitle="{DynamicResource btn_back_desc}"
+                                          Command="{Binding BackClick}" Visibility="{Binding IsCalibration, Converter={StaticResource booleanToReverseVisibilityConverter}}"/>
+                    <lego:FancyButton Style="{StaticResource fancyButtonStyle}" Height="60"
+                                          FuncType="Next" Title="{DynamicResource btn_next}" SubTitle="{DynamicResource btn_next_desc}"
+                                          Command="{Binding NextClick}" Visibility="{Binding IsCalibration, Converter={StaticResource booleanToReverseVisibilityConverter}}"/>
+                    <lego:FancyButton Style="{StaticResource fancyButtonStyle}" Height="60"
+                                          FuncType="Cancel" Title="{DynamicResource btn_cancel}" SubTitle="{DynamicResource btn_cancel_desc}"
+                                          Command="{Binding CancelClick}" Visibility="{Binding IsCalibration, Converter={StaticResource booleanToReverseVisibilityConverter}}"/>
+                    
+                    <lego:FancyButton Style="{StaticResource fancyButtonStyle}" Height="60"
+                                          FuncType="Cancel" Title="{DynamicResource btn_close}" SubTitle="{DynamicResource btn_close_desc}"
+                                          Command="{Binding CloseClick}" Visibility="{Binding IsCalibration, Converter={StaticResource booleanToVisibilityConverter}}"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+        <!-- BODY -->
+        <Grid Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <TabControl Grid.Row="0" Grid.Column="0" Background="#2D2D30" BorderThickness="1" TabStripPlacement="Top" Margin="3"
+                            ItemContainerStyle="{StaticResource chevronTabItemStyle}">
+                    <lego:MainTabItem FontSize="12" Header="{DynamicResource popup_test_chamber_temperature}" Width="200" Height="50" Background="{StaticResource popup_header_bg}">
+                        <d3:ChartPlotter Margin="5" LegendVisibility="Collapsed" LegendVisible="False" FontSize="10"
+                                         Background="{StaticResource graph_dark_bg}" Foreground="{StaticResource graph_dark_fg}" BorderBrush="{StaticResource graph_dark_bb}">
+                            <d3:LineGraph DataSource="{Binding SeriesChamberTemperature.SeriesDataSource}" Stroke="{StaticResource dark_series_color_3}" StrokeThickness="1.5" />
+
+                            <d3:VerticalAxisTitle Content="{DynamicResource key_temperature}" FontSize="12" FontWeight="Bold"/>
+                            <d3:HorizontalAxisTitle Content="{DynamicResource key_time_s}" FontSize="12" FontWeight="Bold"/>
+                        </d3:ChartPlotter>
+                    </lego:MainTabItem>
+                </TabControl>
+
+                <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="DarkRed" BorderThickness="3,3,3,3" Background="#cF000000" Margin="4">
+                    <Grid Margin="3" VerticalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+
+                       
+                        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="5">
+                            <Border DockPanel.Dock="Bottom" BorderThickness="1.5" BorderBrush="Gray" />
+                            <lego:eccTextBlock Text="{DynamicResource key_title_temperature}" Style="{StaticResource styleResultInfo}"/>
+                        </DockPanel>
+                     
+                        <!--<lego:eccTextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{DynamicResource key_title_temperature}" Style="{StaticResource styleResultInfo}"/>-->
+                        <lego:eccTextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource key_average_temperature}" Style="{StaticResource styleResultInfo}" HorizontalAlignment="Right"/>
+                        <lego:eccTextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource styleTemperature}" HorizontalAlignment="Left" TextMode="Decimal" Margin="10,0,10,0"
+                                                 Text="{Binding AverageTemperature}"/>
+                        
+                        <lego:eccTextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource key_max_dev_temperature}" Style="{StaticResource styleResultInfo}" HorizontalAlignment="Right"/>
+                        <lego:eccTextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource styleTemperature}" HorizontalAlignment="Left" TextMode="Decimal" Margin="10,0,10,0"
+                                                 Text="{Binding MaxDeviation}"/>
+                        
+                        <lego:eccTextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource key_drift_temperature}" Style="{StaticResource styleResultInfo}" HorizontalAlignment="Right"/>
+                        <lego:eccTextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource styleTemperature}" HorizontalAlignment="Left" TextMode="Decimal" Margin="10,0,10,0"
+                                                 Text="{Binding Drift}"/>
+
+                        <DockPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" Margin="5">
+                            <lego:eccTextBlock FontSize="45" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                               Text="{Binding IsValidResult, Converter={StaticResource booleanToValidTextConverter}, ConverterParameter=SESSION_MANAGER.CurrentLanguage}" 
+                                               Foreground="{Binding IsValidResult, Converter={StaticResource booleanToValidColorConverter}}">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="4"/>
+                                </TextBlock.Effect>
+                            </lego:eccTextBlock>
+                        </DockPanel>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="DarkRed" BorderThickness="3,3,3,3" Background="#cF000000" Margin="4">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <lego:eccTextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource popup_blank_test_out_damper}" Style="{StaticResource styleTestLabel}"/>
+                        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,0,0,0">
+                            <lego:BulletPushButton Content="{DynamicResource key_on}" BorderBrush="{StaticResource state_valid_color}" Width="70" Height="70" FontSize="18"
+                                           IsChecked="{Binding DEVICE_MANAGER.DigitalInput.IsOutDamperOpen, Mode=OneWay}"
+                                           Command="{Binding RunDOCommand}" CommandParameter="OPEN_OUT_DAMPER" />
+                            <lego:BulletPushButton Content="{DynamicResource key_off}" BorderBrush="{StaticResource state_invalid_color}" Width="70" Height="70" FontSize="18"
+                                           IsChecked="{Binding DEVICE_MANAGER.DigitalInput.IsOutDamperClose, Mode=OneWay}"
+                                           Command="{Binding RunDOCommand}" CommandParameter="CLOSE_OUT_DAMPER" />
+                        </StackPanel>
+
+                        <lego:eccTextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource popup_blank_test_in_damper}" Style="{StaticResource styleTestLabel}"/>
+                        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,0,0,0">
+                            <lego:BulletPushButton Content="{DynamicResource key_on}" BorderBrush="{StaticResource state_valid_color}" Width="70" Height="70" FontSize="18"
+                                           IsChecked="{Binding DEVICE_MANAGER.DigitalInput.IsInDamperOpen, Mode=OneWay}"
+                                           Command="{Binding RunDOCommand}" CommandParameter="OPEN_IN_DAMPER" />
+                            <lego:BulletPushButton Content="{DynamicResource key_off}" BorderBrush="{StaticResource state_invalid_color}" Width="70" Height="70" FontSize="18"
+                                           IsChecked="{Binding DEVICE_MANAGER.DigitalInput.IsInDamperClose, Mode=OneWay}"
+                                           Command="{Binding RunDOCommand}" CommandParameter="CLOSE_IN_DAMPER" />
+                        </StackPanel>
+
+                        <lego:eccTextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource popup_blank_test_fan}" Style="{StaticResource styleTestLabel}"/>
+                        <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,0,0,0">
+                            <lego:BulletPushButton Content="{DynamicResource key_on}" BorderBrush="{StaticResource state_valid_color}" Width="70" Height="70" FontSize="18"
+                                           IsChecked="{Binding SESSION_MANAGER.IsFanOn, Mode=OneWay}"
+                                           Command="{Binding RunDOCommand}" CommandParameter="DO_FAN_ON" />
+                            <lego:BulletPushButton Content="{DynamicResource key_off}" BorderBrush="{StaticResource state_invalid_color}" Width="70" Height="70" FontSize="18"
+                                           IsChecked="{Binding SESSION_MANAGER.IsFanOff, Mode=OneWay}"
+                                           Command="{Binding RunDOCommand}" CommandParameter="DO_FAN_OFF" />
+                        </StackPanel>
+
+                        <lego:eccTextBlock Grid.Row="4" Grid.Column="0" Text="{DynamicResource unit_flowrate_cmm}" Style="{StaticResource styleTestLabel}" FontSize="16" Foreground="{StaticResource state_valid_color}" HorizontalAlignment="Center" Margin="5"/>
+                        <lego:Segment4X1 Grid.Row="4" Grid.Column="1" Value="{Binding SESSION_MANAGER.TargetExhaustFlowCMM}" Height="60" Margin="10" HorizontalAlignment="Center"
+                                 StateBrush="{StaticResource state_valid_color}"/>
+                        <lego:RectActionButton Grid.Row="4" Grid.Column="2" Content="{DynamicResource btn_apply}" Width="80" Height="40" FontSize="14" Margin="10"
+                                                   Command="{Binding ApplyInverterCommand}" CommandParameter="{Binding SESSION_MANAGER.TargetExhaustFlowCMM}"
+                                                   BorderBrush="{StaticResource state_action_color}"/>
+
+                        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3">
+                            <DockPanel Margin="5,0,0,5" Width="300">
+                                <lego:eccTextBlock Text="0"  HorizontalAlignment="Left"  TextAlignment="Left" Width="30"/>
+                                <lego:eccTextBlock Text="10"  HorizontalAlignment="Center" TextAlignment="Center" Width="30" Margin="87,0,0,0"/>
+                                <lego:eccTextBlock Text="20" HorizontalAlignment="Right" TextAlignment="Right" Width="30"/>
+                            </DockPanel>
+                            
+                            <Slider x:Name="sldIrradiance"  VerticalAlignment="Center" Orientation="Horizontal" Width="300"
+                            Minimum="0" Maximum="20" SmallChange="1" LargeChange="5" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True"  
+                            Value="{Binding SESSION_MANAGER.TargetExhaustFlowCMM}" />
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+            </Grid>
+            <StackPanel />
+        </Grid>
+    </DockPanel>
+</bw:BaseIEC61034Popup>

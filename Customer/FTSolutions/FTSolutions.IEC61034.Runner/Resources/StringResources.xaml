@@ -1,0 +1,531 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="main_database">Database</system:String>
+    <system:String x:Key="main_analog">Analog</system:String>
+    <system:String x:Key="main_digital">Digital</system:String>
+    <system:String x:Key="main_header">Measurement of smoke density from burning cables</system:String>
+
+    <system:String x:Key="main_light">Light</system:String>
+    <system:String x:Key="main_ignitor">Ignitor</system:String>
+    <system:String x:Key="main_fan">Fan</system:String>
+    <system:String x:Key="main_in_damper">In Damper</system:String>
+    <system:String x:Key="main_out_damper">Out Damper</system:String>
+    <system:String x:Key="main_lamp">Lamp</system:String>
+    <system:String x:Key="main_nd_filter">ND Filter</system:String>
+    <system:String x:Key="main_clear_filter">Clear</system:String>
+    <system:String x:Key="main_dark_filter">Dark</system:String>
+    <system:String x:Key="main_nd_filter_01">0.1</system:String>
+    <system:String x:Key="main_nd_filter_02">0.2</system:String>
+    <system:String x:Key="main_nd_filter_03">0.3</system:String>
+    <system:String x:Key="main_nd_filter_05">0.5</system:String>
+    <system:String x:Key="main_nd_filter_07">0.7</system:String>
+    <system:String x:Key="main_nd_filter_10">1.0</system:String>
+    <system:String x:Key="main_power">Power</system:String>
+   
+    
+    <system:String xml:space="preserve" x:Key="main_transmission">Transmisson &#x0a;(%)</system:String>
+    <system:String xml:space="preserve" x:Key="main_absorbance">Absorbance &#x0a;(%)</system:String>
+    <system:String xml:space="preserve" x:Key="main_chamber_tc">Chamber TC &#x0a;(℃)</system:String>
+    <system:String xml:space="preserve" x:Key="main_fan_flowrate">Fan &#x0a;(Hz)</system:String>
+
+    <system:String x:Key="key_channel">Channel</system:String>
+    <system:String x:Key="key_address">Address</system:String>
+    <system:String x:Key="key_voltage">Voltage</system:String>
+    <system:String x:Key="key_min">Min</system:String>
+    <system:String x:Key="key_max">Max</system:String>
+    <system:String x:Key="key_gradient">Gradient</system:String>
+    <system:String x:Key="key_intercept">Intercept</system:String>
+    <system:String x:Key="key_value">Value</system:String>
+    <system:String x:Key="key_desc">Desc</system:String>
+    <system:String x:Key="key_desc2">Description</system:String>
+    <system:String x:Key="key_key">Key</system:String>
+    <system:String x:Key="key_filter_condition">Filter Condition</system:String>
+    <system:String x:Key="key_registration">Registration</system:String>
+    <system:String x:Key="key_complete">Complete</system:String>
+    <system:String x:Key="key_all">All</system:String>
+    <system:String x:Key="key_search">Search</system:String>
+    <system:String x:Key="key_status">Status</system:String>
+    <system:String x:Key="key_test_target">Test Target</system:String>
+    <system:String x:Key="key_test_name">Test Name</system:String>
+    <system:String x:Key="key_customer">Customer</system:String>
+    <system:String x:Key="key_reg_no">Reg. No</system:String>
+    <system:String x:Key="key_reg_date">Reg. Date</system:String>
+    <system:String x:Key="key_reg_no2">Registration No.</system:String>
+    <system:String x:Key="key_reg_date2">Registration Date</system:String>
+    <system:String x:Key="key_cust_no">Customer No.</system:String>
+    <system:String x:Key="key_registration_info">Registration Info</system:String>
+    <system:String x:Key="key_customer_address">Customer's Address</system:String>
+    <system:String x:Key="key_tester">Tester</system:String>
+    <system:String x:Key="key_tech_manager">Tech. Manager</system:String>
+    <system:String x:Key="key_qualification">Qualification fire Sources</system:String>
+    <system:String x:Key="key_standard">Standard</system:String>
+    <system:String x:Key="key_temperature">Temperature (℃)</system:String>
+    <system:String x:Key="key_chamber_temperature">Chamber Temperature (℃)</system:String>
+    <system:String x:Key="key_time">Time (h)</system:String>
+    <system:String x:Key="key_time_s">Time (s)</system:String>
+    <system:String x:Key="key_monitoring">Monitoring</system:String>
+    <system:String x:Key="key_test">Test</system:String>
+    <system:String x:Key="key_on">On</system:String>
+    <system:String x:Key="key_off">Off</system:String>
+    <system:String x:Key="key_ignition">Ignition</system:String>
+    <system:String x:Key="key_time2">Time (s)</system:String>
+    <system:String x:Key="key_drift">Drift</system:String>
+    <system:String x:Key="key_max_dev">Max Dev.</system:String>
+    <system:String x:Key="key_avg_temp">Temperature Avg.</system:String>
+    <system:String x:Key="key_specimen">Specimen</system:String>
+    <system:String x:Key="key_center">Center</system:String>
+    <system:String x:Key="key_surface">Surface</system:String>
+    <system:String x:Key="key_height">Height</system:String>
+    <system:String x:Key="key_height_mm">Height (mm)</system:String>
+    <system:String x:Key="key_1st">1st</system:String>
+    <system:String x:Key="key_2nd">2nd</system:String>
+    <system:String x:Key="key_laboratory">Laboratory</system:String>
+    <system:String x:Key="key_humidity">Humidity (%)</system:String>
+    <system:String x:Key="key_percent">%</system:String>
+    <system:String x:Key="key_percent2">(%)</system:String>
+    <system:String x:Key="key_minutes">Minutes</system:String>
+    <system:String x:Key="key_unit_temp">(℃)</system:String>
+    <system:String x:Key="key_unit_temp2">℃</system:String>
+    <system:String x:Key="key_unit_gram">g</system:String>
+    <system:String x:Key="key_result">Result</system:String>
+    <system:String x:Key="key_average">Average</system:String>
+    <system:String x:Key="key_measure">Measure</system:String>
+    <system:String x:Key="key_number_of_test">Test No.</system:String>
+    <system:String x:Key="key_test_date">Test Date</system:String>
+    <system:String x:Key="key_alarm">Alarm</system:String>
+    <system:String x:Key="key_no">No.</system:String>
+    <system:String x:Key="key_add">Add</system:String>
+    <system:String x:Key="key_applied_value">Applied Value</system:String>
+    <system:String x:Key="key_indicated_value">Indicated Value</system:String>
+    <system:String x:Key="key_transmission">Transmission (%)</system:String>
+    <system:String x:Key="key_air">Air (mL/min)</system:String>
+    <system:String x:Key="key_propane">Propane (mL/min)</system:String>
+    <system:String x:Key="key_diff_pressure">Diff. Pressure (kPa)</system:String>
+    <system:String x:Key="key_heatflux">Heat Flux (kW/m²)</system:String>
+    <system:String x:Key="key_filter">Filter</system:String>
+    <system:String x:Key="key_clear">Clear</system:String>
+    <system:String x:Key="key_dark">Dark</system:String>
+    <system:String x:Key="key_information">Information</system:String>
+    <system:String x:Key="key_testing_mode">Shutter Mode</system:String>
+    <system:String x:Key="key_radiometer_detail">Radiometer (mV) - Temperature (℃) - Calorimeter (W/Cm²)</system:String>
+    <system:String x:Key="key_copper_disk">Copper Disk (mV)</system:String>
+    <system:String x:Key="key_name">Name</system:String>
+    <system:String x:Key="key_operator">Operator</system:String>
+    <system:String x:Key="key_manager">Manager</system:String>
+    <system:String x:Key="key_product_name">Product Name</system:String>
+    <system:String x:Key="key_manufacture_supplier">Manufacturer / Supplier</system:String>
+    <system:String x:Key="key_pressure">Pressure (kPa)</system:String>
+    <system:String x:Key="key_irradiance">Irradiance</system:String>
+    <system:String x:Key="key_irradiance2">Irradiance (kW/m²)</system:String>
+    <system:String x:Key="key_zero">Zero</system:String>
+    <system:String x:Key="key_span">Span</system:String>
+    <system:String x:Key="key_mass">Mass (g)</system:String>
+    <system:String x:Key="key_open">Open</system:String>
+    <system:String x:Key="key_close">Close</system:String>
+    <system:String x:Key="key_velocity">Velocity (m/s)</system:String>
+    <system:String x:Key="key_good">Good</system:String>
+    <system:String x:Key="key_bad">Err</system:String>
+    <system:String x:Key="key_up">Up</system:String>
+    <system:String x:Key="key_down">Down</system:String>
+    <system:String x:Key="key_length">Length</system:String>
+    <system:String x:Key="key_diameter">Diameter</system:String>
+    <system:String x:Key="key_burner_tc">Burner TC</system:String>
+    <system:String x:Key="key_chamber_tc">Chamber TC</system:String>
+    <system:String x:Key="key_flowrate">Flowrate (L/min)</system:String>
+    <system:String x:Key="key_custom">Custom</system:String>
+    <system:String x:Key="key_fan_flowrate">Fan flowrate (m³/min)</system:String>
+    <system:String x:Key="key_nd_filter01">0.1</system:String>
+    <system:String x:Key="key_nd_filter02">0.2</system:String>
+    <system:String x:Key="key_nd_filter03">0.3</system:String>
+    <system:String x:Key="key_nd_filter05">0.5</system:String>
+    <system:String x:Key="key_nd_filter07">0.7</system:String>
+    <system:String x:Key="key_nd_filter10">1.0</system:String>
+
+    <system:String x:Key="key_title_filter">Filter</system:String>
+    <system:String x:Key="key_title_transmission">Transmission</system:String>
+    <system:String x:Key="key_title_od">OD</system:String>
+    <system:String x:Key="key_title_od_error">ODError(%)</system:String>
+
+
+    <system:String x:Key="key_transmission2">Transmission</system:String>
+
+    <system:String x:Key="key_title_temperature">Temperature</system:String>
+    <system:String x:Key="key_average_temperature">Avg.</system:String>
+    <system:String x:Key="key_max_dev_temperature">Max Dev.</system:String>
+    <system:String x:Key="key_drift_temperature">Drift</system:String>
+
+    <system:String x:Key="key_toluene_parameter">Corrected Absorbance</system:String>
+    
+    <system:String x:Key="key_transmission_absorbance">Transmission &amp; Absorbance(%)</system:String>
+
+    <system:String x:Key="key_major_axis">Major Axis (mm)</system:String>
+    <system:String x:Key="key_minor_axis">Minor Axis (mm)</system:String>
+    <system:String x:Key="key_cable_type">Cable Type</system:String>
+    <system:String x:Key="key_test_pieces_count">Test pieces count</system:String>
+
+    <system:String x:Key="key_toluene_content">Toluene Content</system:String>    
+    
+    <system:String x:Key="key_target">Target transmission</system:String>
+    <system:String x:Key="key_absorbance">Absorbance</system:String>
+
+    <system:String x:Key="key_water_type_spray">Water Spray</system:String>
+    <system:String x:Key="key_water_type_jet">Water Jet</system:String>
+
+    <system:String x:Key="key_water_start_time">Sprinkler start (min)</system:String>
+    <system:String x:Key="key_water_spray_time">Sprinkler time (s)</system:String>
+    <system:String x:Key="key_water_spray_interval">Sprinkler interval (s)</system:String>
+    <system:String x:Key="key_water_spray_total">Total bursts</system:String>
+    
+    <system:String x:Key="unit_irradiance">(kW/m²)</system:String>
+    <system:String x:Key="unit_temperature">(℃)</system:String>
+    <system:String x:Key="unit_mass_g">(g)</system:String>
+    <system:String x:Key="unit_mass_kg">(Kg)</system:String>
+    <system:String x:Key="unit_voltage">(V)</system:String>
+    <system:String x:Key="unit_length_mm">(mm)</system:String>
+    <system:String x:Key="unit_length_cm">(Cm)</system:String>
+    <system:String x:Key="unit_length_m">(m)</system:String>
+    <system:String x:Key="unit_flowrate_lm">(L/min)</system:String>
+    <system:String x:Key="unit_flowrate_ms">(㎥/s)</system:String>
+    <system:String x:Key="unit_percentage">(%)</system:String>
+    <system:String x:Key="unit_pressure_pa">(Pa)</system:String>
+    <system:String x:Key="unit_ppm">(ppm)</system:String>
+    <system:String x:Key="unit_time_ms">(ms)</system:String>
+    <system:String x:Key="unit_time_s">(s)</system:String>
+    <system:String x:Key="unit_time_m">(m)</system:String>
+    <system:String x:Key="unit_time_h">(h)</system:String>
+    <system:String x:Key="unit_spr">(m²)</system:String>
+    <system:String x:Key="unit_spr_area">(m²/m²)</system:String>
+    <system:String x:Key="unit_mass_flow_rate">(kg/s)</system:String>
+    <system:String x:Key="unit_kw">(kW)</system:String>
+    <system:String x:Key="unit_na">(-)</system:String>
+    <system:String x:Key="unit_velocity">(m/s)</system:String>
+    <system:String x:Key="unit_water_flowrate">(L/m²/s)</system:String>
+
+    <system:String x:Key="unit_toluene_parameter">(m²)</system:String>
+    
+    <system:String x:Key="unit_flowrate_mm">(㎥/min)</system:String>
+    <system:String x:Key="unit_flowrate_cmm">CMM (㎥/min)</system:String>
+
+    <system:String x:Key="btn_zero">Zero &#x0a;(0%)</system:String>
+    <system:String x:Key="btn_span">Span &#x0a;(100%)</system:String>
+
+    <system:String x:Key="btn_filter_zero">Zero</system:String>
+    <system:String x:Key="btn_filter_span">Span</system:String>
+
+    <system:String x:Key="btn_new">New</system:String>
+    <system:String x:Key="btn_save">Save</system:String>
+    <system:String x:Key="btn_open">Open</system:String>
+    <system:String x:Key="btn_close">Close</system:String>
+    <system:String x:Key="btn_next">Next</system:String>
+    <system:String x:Key="btn_back">Back</system:String>
+    <system:String x:Key="btn_cancel">Cancel</system:String>
+    <system:String x:Key="btn_report">Report</system:String>
+    <system:String x:Key="btn_test">Test</system:String>
+    <system:String x:Key="btn_apply">Apply</system:String>
+    <system:String x:Key="btn_delete">Delete</system:String>
+    <system:String x:Key="btn_up">Up</system:String>
+    <system:String x:Key="btn_down">Down</system:String>
+    <system:String x:Key="btn_start">Start</system:String>
+    <system:String x:Key="btn_stop">Stop</system:String>
+    <system:String x:Key="btn_pause">Pause</system:String>
+    <system:String x:Key="btn_clear">Clear</system:String>
+    <system:String x:Key="btn_clear_chart">Clear Chart</system:String>
+    <system:String x:Key="btn_continue">Continue</system:String>
+    <system:String x:Key="btn_reservation">Reservation</system:String>
+    <system:String x:Key="btn_change">Change</system:String>
+    <system:String x:Key="btn_view">View</system:String>
+    <system:String x:Key="btn_save_continue">Save &amp; Continue</system:String>
+    <system:String x:Key="btn_save_next">Save &amp; Next</system:String>
+    <system:String x:Key="btn_save_close">Save &amp; Close</system:String>
+    <system:String x:Key="btn_calculate">Calculate</system:String>
+    <system:String x:Key="btn_front">Front</system:String>
+    <system:String x:Key="btn_rear">Rear</system:String>
+    <system:String x:Key="btn_filter">Filter</system:String>
+
+    <system:String x:Key="btn_qualification">Qualification</system:String>
+    <system:String x:Key="btn_qualification_desc">Proceed with the qualification</system:String>
+
+    <system:String x:Key="btn_new_desc">Create a new job</system:String>
+    <system:String x:Key="btn_save_desc">Save the current job</system:String>
+    <system:String x:Key="btn_close_desc">Close the current job</system:String>
+    <system:String x:Key="btn_next_desc">Move the next job</system:String>
+    <system:String x:Key="btn_back_desc">Move the previous job</system:String>
+    <system:String x:Key="btn_cancel_desc">Cancel the current job</system:String>
+    <system:String x:Key="btn_report_desc">View the test result</system:String>
+    <system:String x:Key="btn_test_desc">Proceed with the test</system:String>
+    <system:String x:Key="btn_delete_desc">Delete the current job</system:String>
+    <system:String x:Key="btn_continue_desc">Continue a test</system:String>
+    <system:String x:Key="btn_reservation_desc">Reserve the job</system:String>
+    <system:String x:Key="btn_view_desc">View the result</system:String>
+    <system:String x:Key="btn_save_continue_desc">Save and Continue test</system:String>
+    <system:String x:Key="btn_save_next_desc">Save and Next job</system:String>
+    <system:String x:Key="btn_save_close_desc">Save and exit</system:String>
+    <system:String x:Key="btn_calculate_desc">Calculate the result</system:String>
+    <system:String x:Key="btn_clear_desc">Clear the result</system:String>
+    <system:String x:Key="btn_clear_chart_desc">Clear chart data</system:String>
+    <system:String x:Key="btn_filter_desc">Filter Calibration</system:String>
+
+    <system:String x:Key="popup_common_desc">Do not make any modifications other than the administrator.</system:String>
+    <system:String x:Key="popup_common_alarm_msg">Check Burner!</system:String>
+
+    <system:String x:Key="msg_confirm">Confirm</system:String>
+    <system:String x:Key="msg_warning">Warning</system:String>
+    <system:String x:Key="msg_error">Error</system:String>
+	
+    <system:String x:Key="msg_title_check_data">Check Test Data</system:String>
+    <system:String x:Key="msg_title_quit_app">Close the Application</system:String>
+    <system:String x:Key="msg_title_quit_popup">Close the Popup</system:String>
+    <system:String x:Key="msg_title_save">Save</system:String>
+	<system:String x:Key="msg_title_delete">Delete</system:String>
+
+    <system:String x:Key="msg_input_missing">Required input is missing. Please check and save.</system:String>
+    <system:String x:Key="msg_invalid_item">There is invalid test item.</system:String>
+    <system:String x:Key="msg_quit_app">You cannot quit the application during the test.</system:String>
+    <system:String x:Key="msg_quit_app2">Are you sure you want to quit the application?</system:String>
+    <system:String x:Key="msg_run_menu">The menu cannot be executed during the test.</system:String>
+    <system:String x:Key="msg_quit_menu">Are you sure you want to end the check in progress?</system:String>
+    <system:String x:Key="msg_save_data">Do you want to save it as it is?</system:String>
+    <system:String x:Key="msg_required_data">Please enter a required entry.</system:String>
+    <system:String x:Key="msg_save_complete">The save operation is complete.</system:String>
+    <system:String x:Key="msg_save_error">An error occurred during the save operation.</system:String>
+    <system:String x:Key="msg_test_confirm">Do you want to proceed with the TEST?</system:String>
+    <system:String x:Key="msg_delete_data">Do you want to delete it?</system:String>
+    <system:String x:Key="msg_delete_warning">Test results exist and cannot be deleted.</system:String>
+    <system:String x:Key="msg_calib_missing">The calibration work is not completed.</system:String>
+
+    <system:String x:Key="msg_title_check_ligth_calibration">Check Zero/Span</system:String>
+    <system:String x:Key="msg_invalid_light_calibration">There is invalid Zero/Span.</system:String>
+
+    <system:String x:Key="msg_select_polynomial">Select the polynomial.</system:String>
+    <system:String x:Key="msg_all_nd_filter">Perform measurements on all ND-Filters.</system:String>
+    <system:String x:Key="msg_perform_spray">Perform the spray burner calibration first.</system:String>
+    
+    <system:String x:Key="msg_report_yes">Yes</system:String>
+    <system:String x:Key="msg_report_no">No</system:String>
+    <system:String x:Key="msg_report_na">N/A</system:String>
+    <system:String x:Key="msg_report_pass">PASS</system:String>
+    <system:String x:Key="msg_report_fail">FAIL</system:String>
+    <system:String x:Key="msg_report_no_pass">NO PASS</system:String>
+    <system:String x:Key="msg_report_created">The report file was created.</system:String>
+    <system:String x:Key="msg_report_error">An error occurred while generating the report file.</system:String>
+    <system:String x:Key="msg_report_error_excel">Error: Unable to open Excel file.</system:String>
+    <system:String x:Key="msg_report_no_data">There is no report data.</system:String>
+
+    <system:String x:Key="popup_channel_setting_title">System - Channel Setting</system:String>
+    <system:String x:Key="popup_channel_setting_desc">Sets the communication channel value.</system:String>
+    <system:String x:Key="popup_channel_setting_copy_clipboard">Copy to clipboard</system:String>
+    <system:String x:Key="popup_channel_setting_load_file">Load File...</system:String>
+
+    <system:String x:Key="popup_config_setting_title">System - Config Setting</system:String>
+    <system:String x:Key="popup_config_setting_desc">Sets the config property value.</system:String>
+
+    <system:String x:Key="popup_control_panel_title">Control Panel</system:String>
+    <system:String x:Key="popup_control_panel_desc1">Screen for functional check.</system:String>
+    <system:String x:Key="popup_control_panel_air">Air Flowrate (L/min)</system:String>
+    <system:String x:Key="popup_control_panel_gas">Gas Flowrate (L/min)</system:String>
+    <system:String x:Key="popup_control_panel_title_heat">Source of Heat</system:String>
+    <system:String x:Key="popup_control_panel_title_circuit">Circuit Integrity</system:String>
+    <system:String x:Key="popup_control_panel_title_shock">Shock Producing Device</system:String>
+    <system:String x:Key="popup_control_panel_title_water">Water Sprinkler</system:String>
+    <system:String x:Key="popup_control_panel_tc1">TC-1</system:String>
+    <system:String x:Key="popup_control_panel_tc2">TC-2</system:String>
+    <system:String x:Key="popup_control_panel_burner_tc">Burner Temperature (℃)</system:String>
+
+    <system:String x:Key="popup_control_panel_title_chamber">Chamber</system:String>
+
+    <system:String x:Key="popup_control_panel_minimum_transmission">Min. Transmission</system:String>
+    <system:String x:Key="popup_control_panel_maximum_absorbance">Max. Absorbance</system:String>
+    <system:String x:Key="popup_control_panel_minimum_transmission_time">Min. transmittance time</system:String>
+
+    <system:String x:Key="popup_control_panel_fan_air_flowrate">Fan flowrate (m³/min)</system:String>    
+    <system:String x:Key="popup_control_panel_chamber">Chamber</system:String>
+    <system:String x:Key="popup_control_panel_chamber_tc">Chamber Temperature (℃)</system:String>
+    <system:String x:Key="popup_control_panel_transmission">Transmission (%)</system:String>
+    <system:String x:Key="popup_control_panel_absorbance">Absorbance</system:String>
+
+    <system:String x:Key="popup_control_panel_title_water_spray">Water Spray</system:String>
+    <system:String x:Key="popup_control_panel_title_water_jet">Water Jet</system:String>
+
+    <system:String x:Key="popup_blank_test_title">Blank Test : Chamber temperature(25±5℃)</system:String>
+    <system:String x:Key="popup_light_title">Light</system:String>
+    <system:String x:Key="popup_light_desc">Light</system:String>
+    <system:String x:Key="popup_filter_title">Optical Filter Check</system:String>
+    <system:String x:Key="popup_smoke_ventilation_title">Smoke Ventilation</system:String>
+    
+    <system:String x:Key="popup_calib_prop_title">New Calibration Property</system:String>
+    <system:String x:Key="popup_calib_prop_desc">A detailed description of the calibration.</system:String>
+    <system:String x:Key="popup_calib_prop_custom">Custom Mode</system:String>
+    <system:String x:Key="popup_calib_prop_tc_count">Thermocouple Count</system:String>
+    <system:String x:Key="popup_calib_prop_valid_temperature">Invalid setting of minimum and maximum temperature values.</system:String>
+    <system:String x:Key="popup_calib_prop_valid_max_diff">Invalid setting of max-diff temperature value.</system:String>
+
+    <system:String x:Key="popup_registration_desc">Manage a registration numbers.</system:String>
+    <system:String x:Key="popup_registration_delete_confirm">Are you sure you want to delete the current registration information?</system:String>
+    <system:String x:Key="popup_registration_report_msg">The selected registration number has not been tested.</system:String>
+
+    <system:String x:Key="popup_qualification_registration_desc">Manage Qualification fire sources.</system:String>
+
+    <system:String x:Key="popup_new_qualification_registration_title">New Qualification Registration</system:String>
+    <system:String x:Key="popup_new_qualification_registration_toluene">Toluene</system:String>
+    <system:String x:Key="popup_qualification_absorbance_range">Standard Absorbance range</system:String>
+    <system:String x:Key="popup_new_qualification_toluene4_desc">4% : 0.18 ~ 0.26 m²</system:String>
+    <system:String x:Key="popup_new_qualification_toluene10_desc">10% : 0.80 ~ 1.20 m²</system:String>
+
+    <system:String x:Key="popup_toluene4_text">4%</system:String>
+    <system:String x:Key="popup_toluene10_text">10%</system:String>
+    
+    <system:String x:Key="popup_new_registration_title">New Registration</system:String>
+    <system:String x:Key="popup_new_registration_sponsor">Sponsor</system:String>
+    <system:String x:Key="popup_new_registration_product_info">Product Info</system:String>
+    <system:String x:Key="popup_new_registration_product_name">Product Name</system:String>
+    <system:String x:Key="popup_new_registration_test_info">Information</system:String>
+    <system:String x:Key="popup_new_registration_condition">Test Condition</system:String>
+    <system:String x:Key="popup_new_registration_test_result">Test Result</system:String>
+
+    <system:String x:Key="popup_new_registration_qualification_condition">Qualification Condition</system:String>
+    <system:String x:Key="popup_new_registration_qualification_result">Qualification Result</system:String>
+    <system:String x:Key="popup_new_registration_max_qualification_duration">Max. Qualification Duration (min)</system:String>
+
+    <system:String x:Key="popup_new_registration_max_test_duration">Max. Test Duration (min)</system:String>
+    <system:String x:Key="popup_new_registration_cable_type">Cable Type</system:String>
+    <system:String x:Key="popup_new_registration_cable_diameter">Diameter (mm)</system:String>
+    <system:String x:Key="popup_new_registration_cable_length">Cable Length (m)</system:String>
+    <system:String x:Key="popup_new_registration_cable_major_axis">Major Axis (mm)</system:String>
+    <system:String x:Key="popup_new_registration_cable_minor_axis">Minor Axis (mm)</system:String>
+    <system:String x:Key="popup_new_registration_test_pieces">Test pieces count</system:String>
+    <system:String x:Key="popup_new_registration_number_of_cables">The number of Cables or Bundles</system:String>
+
+    <system:String x:Key="popup_blank_test_out_damper">Out Damper</system:String>
+    <system:String x:Key="popup_blank_test_in_damper">In Damper</system:String>
+    <system:String x:Key="popup_blank_test_fan">Fan</system:String>
+    
+    <system:String x:Key="popup_new_registration_diameter">Diameter</system:String>
+    <system:String x:Key="popup_new_registration_cables">Cables</system:String>
+    <system:String x:Key="popup_new_registration_bundles">Bundles</system:String>
+    <system:String x:Key="popup_new_registration_cables_40_over">D&gt;40</system:String>
+    <system:String x:Key="popup_new_registration_cables_20to40">20&lt;D≤40</system:String>
+    <system:String x:Key="popup_new_registration_cables_10to20">10&lt;D≤20</system:String>
+    <system:String x:Key="popup_new_registration_cables_5to10">5&lt;D≤10</system:String>
+    <system:String x:Key="popup_new_registration_cables_1to5">1≤D≤5</system:String>
+    <system:String x:Key="popup_new_registration_cables_1to10">1≤D≤10</system:String>
+    <system:String x:Key="popup_new_registration_cables_annex">* 1 bundles = 7 Cables.</system:String>
+    <system:String x:Key="popup_new_registration_flat_annex0">* (Major Axis)/(Minor Axis)≤3 :</system:String>
+    <system:String x:Key="popup_new_registration_flat_annex1">Diameter = Minor Axis</system:String>
+    <system:String x:Key="popup_new_registration_flat_annex2">* 3≤(Major Axis)/(Minor Axis)≤16 :</system:String>
+    <system:String x:Key="popup_new_registration_flat_annex3">Diameter = Perimeter / (2 * 3.14(π))</system:String>
+
+
+    <system:String x:Key="popup_nd_filter_title">Calibration - ND Filter</system:String>
+    <system:String x:Key="popup_nd_filter_desc">The optical density calculated with the measured light receiver signal shall be within 5% or ±0.01 of the theoretical value of the filters.</system:String>
+    <system:String x:Key="popup_nd_filter_0">(0%)</system:String>
+    <system:String x:Key="popup_nd_filter_100">(100%)</system:String>
+    <system:String x:Key="popup_nd_filter_least_square">Least Squares Polynomial Fit</system:String>
+    <system:String x:Key="popup_nd_filter_filters">Neutral Density Filters</system:String>
+    <system:String x:Key="popup_nd_filter_polynomial">Polynomial</system:String>
+    <system:String x:Key="popup_nd_filter_intercept">Intercept</system:String>
+    <system:String x:Key="popup_nd_filter_1st_term">1st Term</system:String>
+    <system:String x:Key="popup_nd_filter_2nd_term">2nd Term</system:String>
+    <system:String x:Key="popup_nd_filter_3rd_term">3rd Term</system:String>
+    <system:String x:Key="popup_nd_filter_4th_term">4th Term</system:String>
+    <system:String x:Key="popup_nd_filter_calc_transmission">Calibrated Transmission</system:String>
+    <system:String x:Key="popup_nd_filter_certi">Certified</system:String>
+    <system:String x:Key="popup_nd_filter_calc">Calculated</system:String>
+    <system:String x:Key="popup_nd_filter_theoretical">Theoretical</system:String>
+    <system:String x:Key="popup_nd_filter_error">Error</system:String>
+    <system:String x:Key="popup_nd_filter_update_filter">Update ND-Filter Certification values.</system:String>
+    <system:String x:Key="popup_nd_filter_no_compensation">No Compensation.</system:String>
+    
+    <system:String x:Key="popup_qualification_prop_title">New Qualification Property</system:String>
+    
+    <system:String x:Key="popup_test_prop_title">New Test Property</system:String>
+    <system:String x:Key="popup_test_prop_number">Number of Specimens</system:String>
+    <system:String x:Key="popup_test_prop_conditions">Specimen Condition</system:String>
+    <system:String x:Key="popup_test_prop_reg_info">Registration Info</system:String>
+    <system:String x:Key="popup_test_prop_product_material">Product / Material</system:String>
+    <system:String x:Key="popup_test_prop_h_distance">Horizontal Distance (mm)</system:String>
+    <system:String x:Key="popup_test_prop_h_distance2">Horizontal Distance</system:String>
+    <system:String x:Key="popup_test_prop_v_distance">Vertical Distance (mm)</system:String>
+    <system:String x:Key="popup_test_prop_v_distance2">Vertical Distance</system:String>
+    <system:String x:Key="popup_test_prop_flame_calibration">Flame Calibration Info</system:String>
+
+    <system:String x:Key="popup_test_stop_condition">Stop Condition</system:String>
+
+    <system:String x:Key="popup_flame_title">Qualification for the source of heat</system:String>
+    
+    <system:String x:Key="popup_flame_desc_custom_flowrate">Air, Gas: Adjusted</system:String>
+    <system:String x:Key="popup_flame_desc_custom_temperature">Average: Custom</system:String>
+    <system:String x:Key="popup_flame_desc_custom_max_diff">Max Diff.: Custom</system:String>
+    <system:String x:Key="popup_flame_desc_custom_distance">H, V: Adjusted</system:String>
+    <system:String x:Key="popup_flame_air">Air</system:String>
+    <system:String x:Key="popup_flame_gas">Gas</system:String>
+    <system:String x:Key="popup_flame_diff_30sec">Diff. (average for 30sec)</system:String>
+    <system:String x:Key="popup_flame_max_diff_30sec">Max Diff. (average for 30sec)</system:String>
+
+    <system:String x:Key="popup_qualification_title">Qualification fire Sources</system:String>
+    <system:String x:Key="popup_test_title">Test</system:String>
+    <system:String x:Key="popup_test_desc">Place the test specimens in the test chamber, initiate alcohol combustion to generate smoke, and record the light transmittance continuously in accordance with standard.</system:String>
+    <system:String x:Key="popup_qualification_desc">Qualification that the smoke produced within the chamber achieves the standard absorbance values for alcohol/toluene fire sources.</system:String>
+    <system:String x:Key="popup_test_air_gas_flowrate">Air &amp; Gas Flowrate (L/min)</system:String>
+    <system:String x:Key="popup_test_flame_time">Flame application time (min)</system:String>
+    <system:String x:Key="popup_test_ignition_check">Check Burner Ignition</system:String>
+    <system:String x:Key="popup_test_standard_burner">Standard Burner / Ladder</system:String>
+    <system:String x:Key="popup_test_air_flowrate">Air Flowrate</system:String>
+    <system:String x:Key="popup_test_gas_flowrate">Gas Flowrate</system:String>
+    <system:String x:Key="popup_test_target_flame">Flame Temperature (℃)</system:String>
+    <system:String x:Key="popup_test_phase_conductor">Phase Conductor</system:String>
+    <system:String x:Key="popup_test_neutral_conductor">Neutral Conductor</system:String>
+    <system:String x:Key="popup_test_protective_conductor">Protective Conductor</system:String>
+    <system:String x:Key="popup_test_interval_sec">Interval (sec)</system:String>
+    <system:String x:Key="popup_test_interval_min">Interval (min)</system:String>
+    <system:String x:Key="popup_test_auto_stop">Auto Stop</system:String>
+
+    <system:String x:Key="popup_toluene4_desc">4% Toluene : 0.18(m²) ~ 0.26(m²)</system:String>
+    <system:String x:Key="popup_toluene10_desc">10% Toluene : 0.80(m²) ~ 1.20(m²)</system:String>
+    <system:String x:Key="popup_fan_flowrate_desc">Fan flowrate: 7(m³/min) ~ 15(m³/min)</system:String>
+
+    
+    <system:String x:Key="popup_test_absorbance">Standard Absorbance (m²)</system:String>
+    <system:String x:Key="popup_test_transmission">Transmission (%)</system:String>
+    <system:String x:Key="popup_test_transmission_absorbance">Transmission &amp; Absorbance</system:String>
+    <system:String x:Key="popup_test_chamber_temperature">Temperature (℃)</system:String>
+    <system:String x:Key="popup_test_fan_flowrate">Fan</system:String>
+    <system:String x:Key="popup_test_min_transmission">Min. Transmittance</system:String>
+    <system:String x:Key="popup_test_max_absorbance">Max. Standard Absorbance</system:String>
+    <system:String x:Key="popup_test_max_time">Time to max</system:String>
+    <system:String x:Key="popup_test_flameout_time">Flame Out</system:String>
+
+    <system:String x:Key="popup_qualification_summary_title">Calibration Summary</system:String>
+    
+    <system:String x:Key="popup_test_summary_title">Test Summary</system:String>
+    <system:String x:Key="popup_test_summary_desc">Check the minimum transmittance and the corresponding time.</system:String>
+    <system:String x:Key="popup_test_summary_damage">The extent of damage (&#x2264; 2.5m)</system:String>
+    <system:String x:Key="popup_test_summary_time">The time to extinction of all burning or glowing</system:String>
+    <system:String x:Key="popup_test_summary_evaluation">Evaluation</system:String>
+    <system:String x:Key="popup_test_summary_breakdown_time">Breakdown time (sec)</system:String>
+
+    <system:String x:Key="popup_qualification_max_duration">Max. Qualification Duration (min)</system:String>
+    
+    <system:String x:Key="popup_test_max_duration">Max. Test Duration (min)</system:String>
+    <system:String x:Key="popup_test_summary_flameout_time">Flameout time (sec)</system:String>
+    <system:String x:Key="popup_test_summary_minimum_transmission">Min. light transmittance (%)</system:String>
+    <system:String x:Key="popup_test_summary_maximum_absorbance">Max. Standard Absorbance (m²)</system:String>
+    <system:String x:Key="popup_test_summary_maximum_absorbance_time">Time to max Absorbance (sec)</system:String>
+    <system:String x:Key="popup_test_summary_minimum_transmission_time">Min. transmittance time (sec)</system:String>
+    <system:String x:Key="popup_test_summary_corrected_absorbance">Corrected Absorbance</system:String>
+
+    <system:String x:Key="popup_blank_test_invalid_temperature">Invalid Chamber temperature.</system:String>
+    <system:String x:Key="popup_light_calib_valid_zero_span">Zero/Span calibration has not been completed.</system:String>
+
+    <system:String x:Key="msg_invalid_temperature">Invalid Chamber temperature</system:String>
+    <system:String x:Key="popup_blank_test_invalid_temperature_continue">Invalid Chamber temperature. Continue?</system:String>
+    
+    <system:String x:Key="popup_light_calib_invalid_filter">Invalid Filter.</system:String>
+    <system:String x:Key="popup_light_calib_zero_complete">Light Zero Complete.</system:String>
+    <system:String x:Key="popup_light_calib_span_complete">Light Span Complete.</system:String>
+    <system:String x:Key="popup_transmission_invalid_stabilization">The transmission has not stabilized yet.</system:String>
+    <system:String x:Key="popup_temperature_invalid_stabilization">The temperature has not stabilized yet.</system:String>
+
+    <system:String x:Key="monitor_prev_result">Final Result</system:String>
+    <system:String x:Key="monitor_curr_result">Current Result</system:String>
+</ResourceDictionary>

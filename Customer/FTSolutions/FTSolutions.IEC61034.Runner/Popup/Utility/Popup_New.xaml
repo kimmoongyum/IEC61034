@@ -1,0 +1,49 @@
+﻿<bw:BaseIEC61034Popup x:Class="FTSolutions.IEC61034.Runner.Popup.Utility.Popup_New"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                        xmlns:bw="clr-namespace:FTSolutions.IEC61034.Common.Base;assembly=FTSolutions.IEC61034.Common"
+                        xmlns:lego="clr-namespace:eccFramework.SharedLib.Lego.Brick;assembly=eccFramework.SharedLib.Lego"
+                        AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize"
+                        WindowStartupLocation="CenterScreen"
+                        Title="" Height="280" Width="500">
+    <bw:BaseIEC61034Popup.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/eccFramework.SharedLib.Core;component/Styles/PopupBrushes.xaml"/>
+                <ResourceDictionary Source="/FTSolutions.IEC61034.Runner;component/Styles/IEC61034Brushes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="lego:eccTextBlock">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+        </ResourceDictionary>
+    </bw:BaseIEC61034Popup.Resources>
+
+    <Grid Background="{StaticResource popup_background}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition />
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="20,0,0,0" >
+            <lego:eccTextBlock HorizontalAlignment="Left">
+                <Run Style="{StaticResource highlightStyle}" Text="{DynamicResource msg_required_data}" />
+            </lego:eccTextBlock>
+            
+            <lego:eccTextBlock x:Name="lblKey" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="30"/>
+        </StackPanel>
+        
+        <lego:eccTextBox x:Name="txtInputValue" Grid.Row="1" Height="50" FontSize="35" FontWeight="Bold" Margin="20,0,20,0"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" >
+            <lego:eccButton Click="Apply_Click" Content="{DynamicResource btn_apply}" Width="120" Height="40" FontSize="20"/>
+            <lego:eccButton Click="Cancel_Click" Content="{DynamicResource btn_cancel}" Width="120" Height="40" FontSize="20" Margin="10,0,20,0"/>
+        </StackPanel>
+    </Grid>
+</bw:BaseIEC61034Popup>

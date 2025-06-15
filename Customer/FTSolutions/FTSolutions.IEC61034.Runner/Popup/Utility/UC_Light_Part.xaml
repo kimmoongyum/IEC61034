@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="FTSolutions.IEC61034.Runner.Popup.Utility.UC_Light_Part"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lego="clr-namespace:eccFramework.SharedLib.Lego.Brick;assembly=eccFramework.SharedLib.Lego"
+             xmlns:local="clr-namespace:FTSolutions.IEC61034.Runner.Popup.Utility"
+             Width="1272" Height="583">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/eccFramework.SharedLib.Core;component/Styles/PopupBrushes.xaml"/>
+                <ResourceDictionary Source="/FTSolutions.IEC61034.Runner;component/Styles/IEC61034Brushes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <LinearGradientBrush x:Key="laserBrushH" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Offset="0" Color="#feffe8" />
+                <GradientStop Offset="0.5" Color="#FFFD0000" />
+                <GradientStop Offset="1" Color="#d6dbbf" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <DockPanel>
+        <Border Background="Transparent">
+            <Canvas Background="Transparent">
+                <Image Source="/FTSolutions.IEC61034.Runner;component/Images/light_part.png"/>
+
+                <Line Stroke="{StaticResource laserBrushH}" StrokeThickness="14" X1="356" Y1="292" X2="880" Y2="292" 
+                      Visibility="{Binding LightVisibility, RelativeSource={RelativeSource AncestorType={x:Type local:UC_Light_Part}}}"/>
+            </Canvas>
+        </Border>
+    </DockPanel>
+</UserControl>
