@@ -342,7 +342,7 @@ namespace FTSolutions.IEC61034.BizLogic.ViewModel
             wsReport.Range["P16"].Value = reportData.MINIMUM_TRANSMISSION_SECOND;
 
             wsReport.Range["H17"].Value = reportData.MINIMUM_TRANSMISSION;
-            wsReport.Range["P17"].Value = reportData.CORRECTED_ABSORBANCE;
+            wsReport.Range["H18"].Value = reportData.CORRECTED_ABSORBANCE;
             #endregion
 
             #region Define variables.

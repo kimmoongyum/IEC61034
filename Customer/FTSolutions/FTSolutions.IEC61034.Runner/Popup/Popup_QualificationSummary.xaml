@@ -8,7 +8,7 @@
                       xmlns:conv="clr-namespace:FTSolutions.IEC61034.Common.Converter;assembly=FTSolutions.IEC61034.Common"
                       AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize"
                       WindowStartupLocation="CenterScreen"
-                      Title="{DynamicResource main_header}" Height="850" Width="680">
+                      Title="{DynamicResource main_header}" Height="1000" Width="680">
     <bw:BaseIEC61034Popup.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -164,7 +164,8 @@
                             <RowDefinition Height="60"/>
                             <RowDefinition Height="60"/>
                             <RowDefinition Height="60"/>
-                            <!--<RowDefinition Height="60"/>-->
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="60"/>
                             <RowDefinition Height="10"/>
                             <RowDefinition Height="200"/>
                         </Grid.RowDefinitions>
@@ -173,36 +174,29 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
-                        <lego:eccTextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource popup_test_summary_flameout_time}" Foreground="{StaticResource state_valid_color}" FontSize="20"/>
+                        <lego:eccTextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource popup_test_summary_flameout_time}" Style="{StaticResource styleResultTitle}" HorizontalAlignment="Right"/>
                         <lego:eccTextBox Grid.Row="0" Grid.Column="1" IsEnabled="False" Style="{StaticResource styleValue}" Height="50" FontSize="30" HorizontalContentAlignment="Center"
                                      Text="{Binding TestItem_QualificationSummary.FlameoutTime}"/>
 
-                        <lego:eccTextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource popup_test_summary_maximum_absorbance_time}" Foreground="{StaticResource state_valid_color}" FontSize="20"/>
+                        <lego:eccTextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource popup_test_summary_maximum_absorbance_time}" Style="{StaticResource styleResultTitle}" HorizontalAlignment="Right"/>
                         <lego:eccTextBox Grid.Row="1" Grid.Column="1" IsEnabled="False" Style="{StaticResource styleValue}" Height="50" FontSize="30" HorizontalContentAlignment="Center"
                                      Text="{Binding TestItem_QualificationSummary.MinTransmissionSecond}"/>
-                        
-                        <lego:eccTextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource popup_test_summary_minimum_transmission}" Foreground="{StaticResource state_valid_color}" FontSize="20"/>
+
+                        <lego:eccTextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource popup_test_summary_minimum_transmission}" Style="{StaticResource styleResultTitle}" HorizontalAlignment="Right"/>
                         <lego:eccTextBox Grid.Row="2" Grid.Column="1" IsEnabled="False" Style="{StaticResource styleValue}" Height="50" FontSize="30" HorizontalContentAlignment="Center"
-                                     Text="{Binding TestItem_QualificationSummary.MinTransmission}"/>                       
+                                     Text="{Binding TestItem_QualificationSummary.MinTransmission}"/>
 
-                        <!--
-                        <lego:eccTextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource popup_test_summary_maximum_absorbance}" Foreground="{StaticResource state_action_color}" FontSize="20"/>
+                        <lego:eccTextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource popup_test_summary_corrected_absorbance}" Foreground="{StaticResource state_valid_color}" FontSize="20"/>
                         <lego:eccTextBox Grid.Row="3" Grid.Column="1" IsEnabled="False" Style="{StaticResource styleValue}" Height="50" FontSize="30" HorizontalContentAlignment="Center"
-                                     Text="{Binding TestItem_QualificationSummary.MaxAbsorbance}"/>
-                        -->
-
-                        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="1.5" BorderBrush="Gray" Margin="10,4" />
-
-                        <!--
-                        <lego:eccTextBlock Grid.Row="5" Grid.Column="0" Text="{DynamicResource popup_test_summary_corrected_absorbance}" Foreground="{StaticResource state_valid_color}" FontSize="20"/>
-                        <lego:eccTextBox Grid.Row="5" Grid.Column="1" IsEnabled="False" Style="{StaticResource styleValue}" Height="60" FontSize="30" HorizontalContentAlignment="Center"
                                      Text="{Binding TestItem_QualificationSummary.CorrectedAbsorbance}"/>
 
-                        <lego:eccTextBlock Grid.Row="6" Grid.Column="0" Text="{DynamicResource popup_test_summary_evaluation}" Foreground="{StaticResource state_valid_color}" FontSize="20"/>
-                        <lego:eccTextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" IsEnabled="False" Style="{StaticResource styleValue}" Height="60" FontSize="30" HorizontalContentAlignment="Center"
+                        <lego:eccTextBlock Grid.Row="4" Grid.Column="0" Text="{DynamicResource popup_test_summary_evaluation}" Foreground="{StaticResource state_valid_color}" FontSize="20"/>
+                        <lego:eccTextBox Grid.Row="4" Grid.Column="1" IsEnabled="False" Style="{StaticResource styleValue}" Height="50" FontSize="30" HorizontalContentAlignment="Center"
                                      Text="{Binding TestItem_QualificationSummary.Evaluation}" Foreground="{Binding TestItem_QualificationSummary.EvaluationColor}"/>
-                        -->
-                        <Grid Grid.Row="5" Grid.ColumnSpan="2">
+
+                        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="1.5" BorderBrush="Gray" Margin="10,4" />                        
+                 
+                        <Grid Grid.Row="6" Grid.ColumnSpan="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="4*"/>
                                 <ColumnDefinition Width="6*"/>
@@ -262,7 +256,7 @@
 
             <lego:eccGroupBox Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4"  Tag="16" Header="{DynamicResource key_desc2}" Margin="5,3,5,3" VerticalAlignment="Top"
                               BorderBrush="{StaticResource groupbox_header_bg}" Background="{StaticResource popup_header_bg}">
-                <lego:eccTextBox  Height="120" AcceptsReturn="True" Style="{StaticResource styleValue}" Margin="5" VerticalAlignment="Top"
+                <lego:eccTextBox  Height="150" AcceptsReturn="True" Style="{StaticResource styleValue}" Margin="5" VerticalAlignment="Top"
                                  HorizontalContentAlignment="Left" VerticalContentAlignment="Top"
                                  Text="{Binding TestItem_TestSummary.Description}" />
             </lego:eccGroupBox>

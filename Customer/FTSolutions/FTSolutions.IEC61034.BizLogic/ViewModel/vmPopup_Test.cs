@@ -17,11 +17,6 @@ namespace FTSolutions.IEC61034.BizLogic.ViewModel
 {
     public class vmPopup_Test : BaseIEC61034ViewModel
     {
-        public class TDuration
-        {
-            public string Name { get; set; }
-            public int Id { get; set; }
-        }
 
         public vmPopup_Test()
         {
@@ -29,7 +24,8 @@ namespace FTSolutions.IEC61034.BizLogic.ViewModel
 
             TickTimerCommand = new DelegateCommand((o) => ExecuteTickTimerCommand(o));
             ApplyInverterCommand = new DelegateCommand((o) => ExecuteApplyInverterCommand(o));
-            SetFlameoutTimeCommand = new DelegateCommand((o) => ExecuteSetFlameoutTimeCommand(o));
+            FlameoutCommand = new DelegateCommand((o) => ExecuteFlameoutTimeCommand(o));
+            ChangeStopConditionCommand = new DelegateCommand((o) => ExecuteChangeStopConditionCommand(o));
 
             ChangeFilter = new DelegateCommand((o) => ExecuteChangeFilter(o));
 
@@ -47,30 +43,14 @@ namespace FTSolutions.IEC61034.BizLogic.ViewModel
 
         public ICommand TickTimerCommand { get; private set; }
         public ICommand ApplyInverterCommand { get; private set; }
-        public ICommand SetFlameoutTimeCommand { get; private set; }
+        public ICommand FlameoutCommand { get; private set; }
+        public ICommand ChangeStopConditionCommand { get; private set; }
 
         public ICommand ChangeFilter { get; private set; }
 
         //###################################################################
         //  Property
-        //###################################################################
-
-        public ObservableCollection<TDuration> TestDurations { get; set; }
-
-        private TDuration _selectedDuration;
-        public TDuration SelectedDuration
-        {
-            get { return _selectedDuration; }
-            set
-            {
-                if (_selectedDuration != value)
-                {
-                    _selectedDuration = value;
-                    this.TestItem_Test.Standard.MaxTestDurationMinute = Convert.ToInt16(value.Name);
-                    this.RaisePropertyChanged(nameof(SelectedDuration));
-                }
-            }
-        }
+        //###################################################################        
         
         private Test _testItem_Test;
         public Test TestItem_Test
@@ -208,19 +188,19 @@ namespace FTSolutions.IEC61034.BizLogic.ViewModel
             }
         }
 
-        private string _flameOutSecond;
-        public string FlameOutSecond
-        {
-            get { return _flameOutSecond; }
-            set
-            {
-                if (this._flameOutSecond != value)
-                {
-                    this._flameOutSecond = value;
-                    this.RaisePropertyChanged(nameof(FlameOutSecond));
-                }
-            }
-        }
+        //private int _flameOutSecond;
+        //public int FlameOutSecond
+        //{
+        //    get { return _flameOutSecond; }
+        //    set
+        //    {
+        //        if (this._flameOutSecond != value)
+        //        {
+        //            this._flameOutSecond = value;
+        //            this.RaisePropertyChanged(nameof(FlameOutSecond));
+        //        }
+        //    }
+        //}
 
         //###################################################################
         //  Override
@@ -248,21 +228,12 @@ namespace FTSolutions.IEC61034.BizLogic.ViewModel
 
             this.TestItem_Test.Standard.StartChamberTemperature = 0;
 
-            TestDurations = new ObservableCollection<TDuration>
-            {
-                new TDuration { Id = 1, Name = "10" },
-                new TDuration { Id = 2, Name = "20" },
-                new TDuration { Id = 3, Name = "30" },
-                new TDuration { Id = 4, Name = "40" },
-                new TDuration { Id = 5, Name = "2" }
-            };
-
-            this.SelectedDuration = TestDurations[3];
+            //this.SelectedDuration = TestDurations[3];
 
             this.TestItem_Test.Standard.IsAutoStop = true;
             this.TestItem_Test.Standard.IsManualStop = false;
 
-            this.FlameOutSecond = string.Format("Flame out");
+            //this.FlameOutSecond = 0;
         }
 
         public override void Dispose()
@@ -395,21 +366,40 @@ namespace FTSolutions.IEC61034.BizLogic.ViewModel
                 this.DEVICE_MANAGER.AnalogOutput.WriteInverter(flowrate);
             }
         }
-
-        public void ExecuteSetFlameoutTimeCommand(object obj)
+    
+        public void ExecuteChangeStopConditionCommand(object obj)
         {
-            this.TestItem_Test.Standard.IsFlameout = true;
+            if(obj != null)
+            {
+                if(obj.ToString().Equals("USER", StringComparison.OrdinalIgnoreCase))
+                {
+                    this.TestItem_Test.CurrentStopTime = IEC61034Const.DEFAULT_MANUAL_STOP_TIME;
+                    this.TestItem_Test.Standard.IsAutoStop = false;
+                    this.TestItem_Test.Standard.IsManualStop = true;
+                }
+                else
+                {
+                    this.TestItem_Test.Standard.IsAutoStop = true;
+                    this.TestItem_Test.Standard.IsManualStop = false;
+                }
+            }
+        }
+
+
+        public void ExecuteFlameoutTimeCommand(object obj)
+        {
+            //this.TestItem_Test.Standard.IsFlameout = true;
 
             if (this.TestItem_Test.Standard.SeriesTransmission.SeriesCollection.Count - 1 < 0)
             {
-                this.TestItem_Test.Standard.FlameoutSecond = 0;
+                this.TestItem_Test.FlameoutTime = 0;
             }
             else
             {
-                this.TestItem_Test.Standard.FlameoutSecond = this.TestItem_Test.Standard.SeriesTransmission.SeriesCollection.Count - 1;
+                this.TestItem_Test.FlameoutTime = this.TestItem_Test.Standard.SeriesTransmission.SeriesCollection.Count - 1;
             }
 
-            this.FlameOutSecond = string.Format("Flame out\n({0}s)", this.TestItem_Test.Standard.FlameoutSecond);
+            //this.FlameOutSecond = this.TestItem_Test.Standard.FlameoutSecond;
         }
 
 

@@ -447,7 +447,10 @@
     <system:String x:Key="popup_test_prop_flame_calibration">열원 검증 정보</system:String>
 
     <system:String x:Key="popup_test_stop_condition">종료 조건</system:String>
-    
+    <system:String x:Key="popup_test_stop_user">Manual</system:String>
+    <system:String x:Key="popup_test_stop_auto">Auto</system:String>
+    <system:String x:Key="popup_test_flameout">Flameout</system:String>    
+
     <system:String x:Key="popup_fan_flowrate">Air: 160 ± 8 (L/min), Gas: 10 ± 0.4 (L/min)</system:String>
     
     <system:String x:Key="popup_flame_title">열원 검증</system:String>
@@ -482,7 +485,7 @@
     <system:String x:Key="popup_toluene10_desc">10% 톨루엔 : 0.80(m²) ~ 1.20(m²)</system:String>
     <system:String x:Key="popup_fan_flowrate_desc">팬 유량: 7(m³/min) ~ 15(m³/min)</system:String>
 
-    <system:String x:Key="popup_test_absorbance">표준 흡수율 (m²)</system:String>
+    <system:String x:Key="popup_test_absorbance">표준 흡수율</system:String>
     <system:String x:Key="popup_test_transmission">투과율 (%)</system:String>
     <system:String x:Key="popup_test_transmission_absorbance">투과율 &amp; 흡수율 (%)</system:String>
     <system:String x:Key="popup_test_chamber_temperature">온도 (℃)</system:String>
@@ -510,7 +513,8 @@
     <system:String x:Key="popup_test_summary_maximum_absorbance">최대 흡수율 (m²)</system:String>
     <system:String x:Key="popup_test_summary_minimum_transmission_time">최소 투과율 시간 (sec)</system:String>
     <system:String x:Key="popup_test_summary_maximum_absorbance_time">최대 흡수율 시간 (sec)</system:String>
-    <system:String x:Key="popup_test_summary_corrected_absorbance">보정된 흡수율</system:String>
+    <system:String x:Key="popup_test_summary_corrected_absorbance">보정된 흡수율 (m²)</system:String>
+    <system:String x:Key="popup_qualification_corrected_absorbance">보정된 흡수율</system:String>
 
     <system:String x:Key="popup_blank_test_invalid_temperature">챔버의 온도가 비정상적 입니다.</system:String>
     <system:String x:Key="popup_light_calib_valid_zero_span">Zero/Span 설정이 완료되지 않았습니다.</system:String>

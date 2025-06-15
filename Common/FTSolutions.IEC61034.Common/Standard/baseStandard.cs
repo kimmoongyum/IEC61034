@@ -27,7 +27,7 @@ namespace FTSolutions.IEC61034.Common.Standard
             this.IsQualification = false;
             this.IsValidResult = false;
 
-            this.IsFlameout = false;
+            //this.IsFlameout = false;
             this.MaxAbsorbance = 0;
             this.MinTransmission = 100;
             this.CurrentAbsorbance = 0;
@@ -36,7 +36,7 @@ namespace FTSolutions.IEC61034.Common.Standard
 
             this.MinTransmissionSecond = 0;
 
-            this.FlameoutSecond = 0;
+            //this.FlameoutSecond = 0;
             this.StartChamberTemperature = 0;
            
             this.SeriesChamberTC = new ChartSeriesInfo();
@@ -50,6 +50,8 @@ namespace FTSolutions.IEC61034.Common.Standard
 
             this.TargetAbsorbanceMin = IEC61034Const.DEFAULT_TOLUENE4_MIN_VALUE;
             this.TargetAbsorbanceMax = IEC61034Const.DEFAULT_TOLUENE4_MAX_VALUE;
+
+            this.MaxTestDurationMinute = IEC61034Const.DEFAULT_MAX_TEST_DURATION;
         }
 
         public baseStandard(string type)
@@ -132,7 +134,7 @@ namespace FTSolutions.IEC61034.Common.Standard
 
             this.IsValidResult = false;
 
-            this.IsFlameout = false;
+            //this.IsFlameout = false;
             this.MaxAbsorbance = 0;
             this.MinTransmission = 100;
             this.CurrentAbsorbance = 0;
@@ -140,7 +142,7 @@ namespace FTSolutions.IEC61034.Common.Standard
             this.CorrectedAbsorbance = 0;
             this.MinTransmissionSecond = 0;
 
-            this.FlameoutSecond = 0;
+            //this.FlameoutSecond = 0;
             this.StartChamberTemperature = 0;
 
             this.SeriesChamberTC = new ChartSeriesInfo();
@@ -150,7 +152,9 @@ namespace FTSolutions.IEC61034.Common.Standard
 
             this.SeriesMaxAbsorbance = new ChartSeriesInfo();
             this.SeriesMaxAbsorbance0 = new ChartSeriesInfo();
-            this.SeriesTransmissionVoltage = new ChartSeriesInfo();            
+            this.SeriesTransmissionVoltage = new ChartSeriesInfo();
+
+            this.MaxTestDurationMinute = IEC61034Const.DEFAULT_MAX_TEST_DURATION;
         }
 
 
@@ -232,20 +236,20 @@ namespace FTSolutions.IEC61034.Common.Standard
         public ChartSeriesInfo SeriesTransmissionVoltage { get; set; }
 
 
-        private int _flameoutSecond;
-        public int FlameoutSecond
-        {
-            get { return _flameoutSecond; }
-            set
-            {
-                if (this._flameoutSecond != value)
-                {
-                    this._flameoutSecond = value;
-                }
+        //private int _flameoutSecond;
+        //public int FlameoutSecond
+        //{
+        //    get { return _flameoutSecond; }
+        //    set
+        //    {
+        //        if (this._flameoutSecond != value)
+        //        {
+        //            this._flameoutSecond = value;
+        //        }
 
-                this.RaisePropertyChanged(nameof(FlameoutSecond));
-            }
-        }
+        //        this.RaisePropertyChanged(nameof(FlameoutSecond));
+        //    }
+        //}
 
         private double _startChamberTemperature;
         public double StartChamberTemperature
@@ -401,20 +405,20 @@ namespace FTSolutions.IEC61034.Common.Standard
             }
         }
 
-        private bool _isFlameout;
-        public bool IsFlameout
-        {
-            get { return _isFlameout; }
-            set
-            {
-                if (this._isFlameout != value)
-                {
-                    this._isFlameout = value;
-                }
+        //private bool _isFlameout;
+        //public bool IsFlameout
+        //{
+        //    get { return _isFlameout; }
+        //    set
+        //    {
+        //        if (this._isFlameout != value)
+        //        {
+        //            this._isFlameout = value;
+        //        }
 
-                this.RaisePropertyChanged(nameof(IsFlameout));
-            }
-        }
+        //        this.RaisePropertyChanged(nameof(IsFlameout));
+        //    }
+        //}
 
         private bool _isTest;
         public bool IsTest
@@ -485,7 +489,7 @@ namespace FTSolutions.IEC61034.Common.Standard
                 if (this._isManualStop != value)
                 {
                     this._isManualStop = value;
-                    this.RaisePropertyChanged(nameof(IsAutoStop));
+                    this.RaisePropertyChanged(nameof(IsManualStop));
                 }
             }
         }
@@ -515,7 +519,7 @@ namespace FTSolutions.IEC61034.Common.Standard
             this._factoryIndex = 0;
 #endif
 
-            this.IsFlameout = false;
+            //this.IsFlameout = false;
             this.IsValidResult = false;
             
 
@@ -538,7 +542,7 @@ namespace FTSolutions.IEC61034.Common.Standard
             this.CorrectedAbsorbance = 0;
             this.MinTransmissionSecond = 0;
 
-            this.FlameoutSecond = 0;
+            //this.FlameoutSecond = 0;
             this.StartChamberTemperature = 0;
         }
 
@@ -685,7 +689,9 @@ namespace FTSolutions.IEC61034.Common.Standard
                     }
                 }
                 */
-            }            
+            }
+
+            Console.WriteLine(string.Format("{0} : {1}", this.IsAutoStop.ToString(), this.MaxTestDurationMinute));
 
             if (this.IsAutoStop)
             {

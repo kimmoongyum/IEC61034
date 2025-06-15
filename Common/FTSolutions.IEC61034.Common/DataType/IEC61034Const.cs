@@ -69,8 +69,6 @@ namespace FTSolutions.IEC61034.Common.DataType
         public const string KEY_MAX_TEST_DURATION = "IEC61034_MAX_TEST_DURATION";
         public const string KEY_CHAMBER_VOLUME = "IEC61034_CHAMBER_VOLUME";
         public const string KEY_LIGHT_PATH = "IEC61034_LIGHT_PATH";
-        public const string KEY_TRANSMISSION_STABILITY_DURATION = "IEC61034_TRANSMISSION_STABILITY_DURATION";
-        public const string KEY_TRANSMISSION_STABILITY_TOLERANCE = "IEC61034_TRANSMISSION_STABILITY_TOLERANCE";
         public const string KEY_TOLUENE_4_ABSORBANCE_MIN = "IEC61034_TOLUENE_4_ABSORBANCE_MIN";
         public const string KEY_TOLUENE_4_ABSORBANCE_MAX = "IEC61034_TOLUENE_4_ABSORBANCE_MAX";
         public const string KEY_TOLUENE_10_ABSORBANCE_MIN = "IEC61034_TOLUENE_10_ABSORBANCE_MIN";
@@ -108,7 +106,7 @@ namespace FTSolutions.IEC61034.Common.DataType
         public const int UPPER_REMOVE_PERCENTAGE = 10;
         public const int LOWER_REMOVE_PERCENTAGE = 10;
 
-        public const int MAX_TEST_DURATION =40;
+        public const int DEFAULT_MAX_TEST_DURATION = 40;
 
         public const int TEMPERATURE_STABILIZATION_DATA_COUNT = 30;         // 1분간 챔버 온도가 안정화 되었는지 검사
         public const int TRANSMISSION_STABILIZATION_DATA_COUNT = 1 + 5;         // 1분간 투과율이 안정화 되었는지 검사
@@ -141,6 +139,9 @@ namespace FTSolutions.IEC61034.Common.DataType
         public const string KEY_TOLUENE_10 = "10%";
 
         public const string QUALIFICATION_STANDARD_TYPE = "Qualification fire Sources";
+
+        public const string DEFAULT_AUTO_STOP_TIME = "40 min";
+        public const string DEFAULT_MANUAL_STOP_TIME = "60 min";
 
     }
 }

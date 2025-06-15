@@ -60,13 +60,16 @@ namespace FTSolutions.IEC61034.BizLogic.ViewModel
         {
             Test testInfo = this.SESSION_MANAGER.IEC61034_DataSetTest.Info_Test;
 
-            TimeSpan totalSeconds = TimeSpan.FromSeconds(testInfo.Standard.FlameoutSecond);
-            this.TestItem_TestSummary.FlameoutTime = totalSeconds.ToString(@"hh\:mm\:ss");
+            //TimeSpan totalSeconds = TimeSpan.FromSeconds(testInfo.Standard.FlameoutSecond);
+            //TimeSpan totalSeconds = TimeSpan.FromSeconds(testInfo.FlameoutTime);
+            //this.TestItem_TestSummary.FlameoutTime = totalSeconds.ToString(@"hh\:mm\:ss");
+            this.TestItem_TestSummary.FlameoutTime = testInfo.FlameoutTime;
             this.TestItem_TestSummary.MaxAbsorbance = testInfo.Standard.MaxAbsorbance;
             this.TestItem_TestSummary.MinTransmission = testInfo.Standard.MinTransmission;
             this.TestItem_TestSummary.StartChamberTemperature = testInfo.Standard.StartChamberTemperature;
-            totalSeconds = TimeSpan.FromSeconds(testInfo.Standard.MinTransmissionSecond);
-            this.TestItem_TestSummary.MinTransmissionSecond = totalSeconds.ToString(@"hh\:mm\:ss");
+            //totalSeconds = TimeSpan.FromSeconds(testInfo.Standard.MinTransmissionSecond);
+            //this.TestItem_TestSummary.MinTransmissionSecond = totalSeconds.ToString(@"hh\:mm\:ss");
+            this.TestItem_TestSummary.MinTransmissionSecond = testInfo.Standard.MinTransmissionSecond;
         }
 
         protected override bool ExecuteCancelClick(object obj)
@@ -203,7 +206,8 @@ namespace FTSolutions.IEC61034.BizLogic.ViewModel
             //paramInfo.Add(new SQLiteParamInfo("minimum_transmission_second", DbType.String, ConvertTimeStringToSecond(this.SESSION_MANAGER.IEC61034_DataSetTest.Info_Test.Standard.MinTransmissionSecond)));
             paramInfo.Add(new SQLiteParamInfo("minimum_transmission_second", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetTest.Info_Test.Standard.MinTransmissionSecond));
 
-            paramInfo.Add(new SQLiteParamInfo("flameout_second", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetTest.Info_Test.Standard.FlameoutSecond));
+            //paramInfo.Add(new SQLiteParamInfo("flameout_second", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetTest.Info_Test.Standard.FlameoutSecond));
+            paramInfo.Add(new SQLiteParamInfo("flameout_second", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetTest.Info_Test.FlameoutTime));
             paramInfo.Add(new SQLiteParamInfo("test_duration", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetTest.Info_Test.Standard.FinishTimeSecond));
 
             paramInfo.Add(new SQLiteParamInfo("summary_description", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetTest.Info_TestSummary.Description));

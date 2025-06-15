@@ -17,8 +17,8 @@ namespace FTSolutions.IEC61034.Common.Result
         //  Property
         //###################################################################     
 
-        private string _flameoutTime;
-        public string FlameoutTime
+        private int _flameoutTime;
+        public int FlameoutTime
         {
             get { return _flameoutTime; }
             set
@@ -73,8 +73,8 @@ namespace FTSolutions.IEC61034.Common.Result
             }
         }
 
-        private string _minTransmissionSecond;
-        public string MinTransmissionSecond
+        private int _minTransmissionSecond;
+        public int MinTransmissionSecond
         {
             get { return _minTransmissionSecond; }
             set
@@ -124,14 +124,16 @@ namespace FTSolutions.IEC61034.Common.Result
         public override void Clear()
         {
             this.Description = String.Empty;
-            this.FlameoutTime = String.Empty;
-            
+            //this.FlameoutTime = String.Empty;
+            this.FlameoutTime = 0;
+
             this.MaxAbsorbance = 0;
             this.MinTransmission = 0;
             this.StartChamberTemperature = 0;
 
             TimeSpan totalSeconds = TimeSpan.FromSeconds(0);
-            this.MinTransmissionSecond = totalSeconds.ToString(@"hh\:mm\:ss");    
+            //this.MinTransmissionSecond = totalSeconds.ToString(@"hh\:mm\:ss");    
+            this.MinTransmissionSecond = 0;
         }
 
         public override bool IsValid()

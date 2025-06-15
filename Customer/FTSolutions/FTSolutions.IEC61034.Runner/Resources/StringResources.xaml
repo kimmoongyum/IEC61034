@@ -450,6 +450,9 @@
     <system:String x:Key="popup_test_prop_flame_calibration">Flame Calibration Info</system:String>
 
     <system:String x:Key="popup_test_stop_condition">Stop Condition</system:String>
+    <system:String x:Key="popup_test_stop_user">Manual</system:String>
+    <system:String x:Key="popup_test_stop_auto">Auto</system:String>
+    <system:String x:Key="popup_test_flameout">Flameout</system:String>
 
     <system:String x:Key="popup_flame_title">Qualification for the source of heat</system:String>
     
@@ -485,7 +488,7 @@
     <system:String x:Key="popup_fan_flowrate_desc">Fan flowrate: 7(m³/min) ~ 15(m³/min)</system:String>
 
     
-    <system:String x:Key="popup_test_absorbance">Standard Absorbance (m²)</system:String>
+    <system:String x:Key="popup_test_absorbance">Standard Absorbance</system:String>
     <system:String x:Key="popup_test_transmission">Transmission (%)</system:String>
     <system:String x:Key="popup_test_transmission_absorbance">Transmission &amp; Absorbance</system:String>
     <system:String x:Key="popup_test_chamber_temperature">Temperature (℃)</system:String>
@@ -512,7 +515,8 @@
     <system:String x:Key="popup_test_summary_maximum_absorbance">Max. Standard Absorbance (m²)</system:String>
     <system:String x:Key="popup_test_summary_maximum_absorbance_time">Time to max Absorbance (sec)</system:String>
     <system:String x:Key="popup_test_summary_minimum_transmission_time">Min. transmittance time (sec)</system:String>
-    <system:String x:Key="popup_test_summary_corrected_absorbance">Corrected Absorbance</system:String>
+    <system:String x:Key="popup_test_summary_corrected_absorbance">Corrected Absorbance (m²)</system:String>
+    <system:String x:Key="popup_qualification_corrected_absorbance">Corrected Absorbance</system:String>
 
     <system:String x:Key="popup_blank_test_invalid_temperature">Invalid Chamber temperature.</system:String>
     <system:String x:Key="popup_light_calib_valid_zero_span">Zero/Span calibration has not been completed.</system:String>

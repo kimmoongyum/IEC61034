@@ -49,8 +49,8 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Grid Height="35">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="250"></ColumnDefinition>
-                                            <ColumnDefinition Width="390"></ColumnDefinition>
+                                            <ColumnDefinition Width="400"></ColumnDefinition>
+                                            <ColumnDefinition Width="240"></ColumnDefinition>
                                             <ColumnDefinition Width="285"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
 
@@ -122,8 +122,8 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250"></ColumnDefinition>
-                    <ColumnDefinition Width="390"></ColumnDefinition>
+                    <ColumnDefinition Width="400"></ColumnDefinition>
+                    <ColumnDefinition Width="240"></ColumnDefinition>
                     <ColumnDefinition Width="285"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <lego:eccTextBlock Grid.Column="0" Text="{DynamicResource key_key}" />

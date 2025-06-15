@@ -18,6 +18,17 @@
                 <ResourceDictionary Source="/FTSolutions.IEC61034.Runner;component/Styles/IEC61034Brushes.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
+            <x:Array x:Key="StopItemSource" Type="sys:String">
+                <sys:String>1 min</sys:String>
+                <sys:String>10 min</sys:String>
+                <sys:String>20 min</sys:String>
+                <sys:String>30 min</sys:String>
+                <sys:String>40 min</sys:String>
+                <sys:String>50 min</sys:String>
+                <sys:String>60 min</sys:String>
+                <sys:String>☞</sys:String>
+            </x:Array>
+            
             <conv:BooleanToValidTextConverter x:Key="booleanToValidTextConverter" />
             <conv:BooleanToValidColorConverter x:Key="booleanToValidColorConverter" />
             <conv:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
@@ -47,14 +58,7 @@
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="FontSize" Value="12" />
             </Style>
-
-            <Style x:Key="styleKeyRadio" TargetType="lego:eccRadioButton">
-                <Setter Property="FontWeight" Value="Bold" />
-                <Setter Property="FontSize" Value="16" />
-                <Setter Property="Margin" Value="10,4" />
-                <Setter Property="Foreground" Value="DarkSeaGreen" />
-            </Style>
-
+            
             <Style x:Key="styleAmbientValue" TargetType="lego:eccTextBlock">
                 <Setter Property="FontSize" Value="12" />
                 <Setter Property="HorizontalAlignment" Value="Center" />
@@ -104,6 +108,14 @@
                 <Setter Property="FontSize" Value="16" />
             </Style>
 
+            <Style x:Key="styleConditionLabel" TargetType="lego:eccTextBlock">
+                <Setter Property="Margin" Value="0,0,2,0" />
+                <Setter Property="Foreground" Value="Silver" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+
             <Style x:Key="styleRegistrationValue" TargetType="lego:eccTextBox">
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="FontWeight" Value="Bold" />
@@ -126,6 +138,19 @@
                 <Setter Property="FontWeight" Value="Bold" />
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="HorizontalAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="styleRadio" TargetType="lego:eccRadioButton">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="Margin" Value="10,1" />
+            </Style>
+
+            <Style x:Key="styleKeyRadio" TargetType="lego:eccRadioButton">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="Margin" Value="10,4" />
+                <Setter Property="Foreground" Value="DarkSeaGreen" />
             </Style>
         </ResourceDictionary>
     </bw:BaseIEC61034Popup.Resources>
@@ -305,19 +330,21 @@
 
                         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">                            
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="160"/>
+                                <RowDefinition Height="200"/>
+                                <RowDefinition Height="100"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="260"/>
                                 <ColumnDefinition Width="260"/>
                             </Grid.ColumnDefinitions>
 
-                            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="2" BorderBrush="DarkRed" Background="Black" Width="500" >
-                                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="2" BorderBrush="DarkRed" Background="Black" Width="500" >
+                                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="8*"/>
@@ -337,8 +364,24 @@
 
                                     <lego:eccTextBlock Grid.Row="2" Grid.Column="1" Text="{DynamicResource popup_test_max_time}" Style="{StaticResource styleResultInfo}" HorizontalAlignment="Right"/>
                                     <lego:eccTextBox Grid.Row="2" Grid.Column="2" Width="120" Height="35" Style="{StaticResource styleRegistrationValue}"
-                                                 Text="{Binding TestItem_Qualification.Standard.MinTransmissionSecond}"/>                                   
+                                                 Text="{Binding TestItem_Qualification.Standard.MinTransmissionSecond}"/>
+                                    <lego:eccTextBlock Grid.Row="2" Grid.Column="3" Text="{DynamicResource unit_time_s}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                                    <lego:eccTextBlock Grid.Row="3" Grid.Column="1" Text="{DynamicResource popup_qualification_corrected_absorbance}" Style="{StaticResource styleResultInfo}" HorizontalAlignment="Right"/>
+                                    <lego:eccTextBox Grid.Row="3" Grid.Column="2" Width="120" Height="35" Style="{StaticResource styleRegistrationValue}"
+                                                 Text="{Binding TestItem_Qualification.Standard.CorrectedAbsorbance}"/>
+                                    <lego:eccTextBlock Grid.Row="3" Grid.Column="3" Text="{DynamicResource unit_toluene_parameter}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                 </Grid>
+                            </Border>
+
+                            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="2" BorderBrush="DarkRed" Background="Black" Width="500" >
+                                <lego:eccTextBlock FontSize="45" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                               Text="{Binding TestItem_Qualification.Standard.IsValidResult, Converter={StaticResource booleanToValidTextConverter}, ConverterParameter=SESSION_MANAGER.CurrentLanguage}" 
+                                               Foreground="{Binding TestItem_Qualification.Standard.IsValidResult, Converter={StaticResource booleanToValidColorConverter}}">
+                                    <TextBlock.Effect>
+                                        <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="4"/>
+                                    </TextBlock.Effect>
+                                </lego:eccTextBlock>
                             </Border>
                         </Grid>
                     </Grid>
@@ -350,30 +393,56 @@
                     <lego:eccTextBlock DockPanel.Dock="Top" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center" Margin="2,20"
                                        Text="{Binding TestItem_Qualification.Standard.StandardDesc}" Foreground="{StaticResource state_valid_color}"/>
 
-                    <lego:eccGroupBox DockPanel.Dock="Top" Tag="16" Header="{DynamicResource popup_test_stop_condition}" Margin="5,30,5,5" Height="130"
-                                      BorderBrush="{StaticResource groupbox_header_bg}" Background="{StaticResource popup_header_bg}">
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"  Height="20"/>
+                    
+                    <lego:eccTextBlock DockPanel.Dock="Top" Text="{DynamicResource popup_test_stop_condition}" Style="{StaticResource styleKeyTitle}" FontSize="25" HorizontalAlignment="Center"/>
+                    <StackPanel DockPanel.Dock="Top" Margin="5">
+                        <Grid>
+                            <lego:eccRadioButton x:Name="rdoAutoStop" VerticalAlignment="Center" Content="{DynamicResource popup_test_stop_auto}" Style="{StaticResource styleRadio}" IsChecked="True" GroupName="grpAuto"
+                                                 Command="{Binding ChangeStopConditionCommand}" CommandParameter="AUTO"/>
+
+                            <lego:eccComboBox FontSize="20" Width="130" Height="35" Margin="10,5" HorizontalAlignment="Right" VerticalAlignment="Center" HorizontalContentAlignment="Center"
+                                                  IsEnabled="{Binding Path=IsChecked, ElementName=rdoAutoStop}"
+                                                  ItemsSource="{StaticResource StopItemSource}" SelectedValue="{Binding TestItem_Qualification.CurrentStopTime}" />
+                        </Grid>
+
+                        <lego:eccRadioButton x:Name="rdoUserStop" VerticalAlignment="Center" Content="{DynamicResource popup_test_stop_user}" Style="{StaticResource styleRadio}" GroupName="grpAuto"
+                                                    Command="{Binding ChangeStopConditionCommand}" CommandParameter="USER"/>
+                    </StackPanel>
+
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"  Height="20"/>
+
+                    <lego:eccTextBlock DockPanel.Dock="Top" Text="{DynamicResource popup_new_registration_qualification_condition}" Style="{StaticResource styleKeyTitle}" FontSize="25" HorizontalAlignment="Center"/>
+                    <StackPanel DockPanel.Dock="Top" Margin="5">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="4*"/>
-                                <ColumnDefinition Width="6*"/>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="40"/>
                             </Grid.ColumnDefinitions>
 
-                            <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Orientation="Vertical">
-                                <lego:eccRadioButton Content="Auto" GroupName="grpCable" Style="{StaticResource styleKeyRadio}" FontSize="16" Width="Auto" VerticalAlignment="Center" Height="35"
-                                                 IsChecked="{Binding TestItem_Qualification.Standard.IsAutoStop}"/>
-                                <lego:eccRadioButton Content="Manual" GroupName="grpCable" Style="{StaticResource styleKeyRadio}" FontSize="16" Width="Auto" VerticalAlignment="Center" Height="35"
-                                                 IsChecked="{Binding TestItem_Qualification.Standard.IsManualStop}"/>
+                            <lego:eccTextBlock Grid.Row="0" Grid.Column="1" Text="{DynamicResource popup_new_qualification_registration_toluene}" Style="{StaticResource styleConditionLabel}" HorizontalAlignment="Left"/>
+                            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                                <lego:eccRadioButton Content="{DynamicResource popup_toluene4_text}" GroupName="grpToluene" Style="{StaticResource styleRadio}" Width="Auto" VerticalAlignment="Center"
+                                                 IsChecked="{Binding IsToluene4}" IsHitTestVisible="False" Focusable="False"/>
+                                <lego:eccRadioButton Content="{DynamicResource popup_toluene10_text}" GroupName="grpToluene" Style="{StaticResource styleRadio}" Width="Auto" VerticalAlignment="Center"
+                                                 IsChecked="{Binding IsToluene10}" IsHitTestVisible="False" Focusable="False"/>
                             </StackPanel>
 
-                            <lego:eccComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding TestDurations}" ItemContainerStyle="{StaticResource ComboBoxItemStyle}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedDuration, Mode=TwoWay}" Width="150" Height="35" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        </Grid>
-                    </lego:eccGroupBox>  
-                    
+                            <lego:eccTextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{DynamicResource popup_qualification_absorbance_range}" Style="{StaticResource styleConditionLabel}" HorizontalAlignment="Left" />
 
+                            <lego:eccTextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{DynamicResource popup_new_qualification_toluene4_desc}" Style="{StaticResource styleConditionLabel}" HorizontalAlignment="Left" Margin="20,0,0,0" />
+                            <lego:eccTextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{DynamicResource popup_new_qualification_toluene10_desc}" Style="{StaticResource styleConditionLabel}" HorizontalAlignment="Left" Margin="20,0,0,0" />
+                        </Grid>
+                    </StackPanel>
+                    <!--
                     <lego:eccGroupBox DockPanel.Dock="Top" Tag="16" Header="{DynamicResource popup_new_registration_qualification_condition}" Margin="5,30,5,5" Height="185"
                                       BorderBrush="{StaticResource groupbox_header_bg}" Background="{StaticResource popup_header_bg}">
                         <Grid>
@@ -405,13 +474,24 @@
                             
                         </Grid>
                     </lego:eccGroupBox>
+                    -->
 
-                    <StackPanel DockPanel.Dock="Top" Height="10" />
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"  Height="20"/>
 
-                    <lego:eccButton DockPanel.Dock="Top" Width="250" Height="80" FontSize="18" FontWeight="Bold" Margin="0,20,10,0"
-                                    Command="{Binding SetFlameoutTimeCommand}">
-                        <lego:eccTextBlock Text="{Binding FlameOutSecond}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </lego:eccButton>                    
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">
+                        <lego:RectActionButton Width="130" Height="70" FontSize="16" Margin="5"
+                                                   BorderBrush="{StaticResource state_measure_color}"
+                                                   Command="{Binding FlameoutCommand}" IsEnabled="{Binding StartTimer}">
+                            <lego:RectActionButton.Content>
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource popup_test_flameout}" HorizontalAlignment="Center"/>
+                                    <TextBlock FontSize="20" Margin="5" HorizontalAlignment="Center"
+                                                   Text="{Binding TestItem_Qualification.FlameoutTime, Converter={StaticResource displaySecondsConverter}}" />
+                                </StackPanel>
+                            </lego:RectActionButton.Content>
+                        </lego:RectActionButton>
+                    </StackPanel>
+                    
                     <StackPanel />
                 </DockPanel>
             </Border>

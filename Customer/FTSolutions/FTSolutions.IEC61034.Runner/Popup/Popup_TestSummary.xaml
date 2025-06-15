@@ -18,6 +18,7 @@
 
             <conv:BooleanToValidTextConverter x:Key="booleanToValidTextConverter" />
             <conv:BooleanToValidColorConverter x:Key="booleanToValidColorConverter" />
+            <conv:DisplaySecondsConverter x:Key="displaySecondsConverter" />
 
             <Style TargetType="lego:eccTextBlock">
                 <Setter Property="FontSize" Value="18" />
@@ -133,11 +134,11 @@
 
                         <lego:eccTextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource popup_test_summary_flameout_time}" Foreground="{StaticResource state_valid_color}" FontSize="20"/>
                         <lego:eccTextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" IsEnabled="False" Style="{StaticResource styleValue}" Height="60" FontSize="30" HorizontalContentAlignment="Center"
-                                     Text="{Binding TestItem_TestSummary.FlameoutTime}"/>
+                                     Text="{Binding TestItem_TestSummary.FlameoutTime, Converter={StaticResource displaySecondsConverter}}"/>
 
                         <lego:eccTextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource popup_test_summary_maximum_absorbance_time}" Foreground="{StaticResource state_valid_color}" FontSize="20"/>
                         <lego:eccTextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" IsEnabled="False" Style="{StaticResource styleValue}" Height="60" FontSize="30" HorizontalContentAlignment="Center"
-                                     Text="{Binding TestItem_TestSummary.MinTransmissionSecond}"/>
+                                     Text="{Binding TestItem_TestSummary.MinTransmissionSecond, Converter={StaticResource displaySecondsConverter}}"/>
                         
                         <lego:eccTextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource popup_test_summary_minimum_transmission}" Foreground="{StaticResource state_valid_color}" FontSize="20"/>
                         <lego:eccTextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" IsEnabled="False" Style="{StaticResource styleValue}" Height="60" FontSize="30" HorizontalContentAlignment="Center"

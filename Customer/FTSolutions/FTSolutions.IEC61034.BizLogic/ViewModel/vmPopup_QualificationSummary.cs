@@ -62,7 +62,8 @@ namespace FTSolutions.IEC61034.BizLogic.ViewModel
 
             Qualification qualificationInfo = this.SESSION_MANAGER.IEC61034_DataSetQualification.Info_Qualification;
             if (qualificationInfo != null) {
-                TimeSpan totalSeconds = TimeSpan.FromSeconds(qualificationInfo.Standard.FlameoutSecond);
+                //TimeSpan totalSeconds = TimeSpan.FromSeconds(qualificationInfo.Standard.FlameoutSecond);
+                TimeSpan totalSeconds = TimeSpan.FromSeconds(qualificationInfo.FlameoutTime);
                 this.TestItem_QualificationSummary.FlameoutTime = totalSeconds.ToString(@"hh\:mm\:ss");
                 this.TestItem_QualificationSummary.MaxAbsorbance = qualificationInfo.Standard.MaxAbsorbance;
                 this.TestItem_QualificationSummary.MinTransmission = qualificationInfo.Standard.MinTransmission;
@@ -239,7 +240,8 @@ namespace FTSolutions.IEC61034.BizLogic.ViewModel
             //paramInfo.Add(new SQLiteParamInfo("minimum_transmission_second", DbType.String, ConvertTimeStringToSecond(this.SESSION_MANAGER.IEC61034_DataSetQualification.Info_Qualification.Standard.MinTransmissionSecond)));
             paramInfo.Add(new SQLiteParamInfo("minimum_transmission_second", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetQualification.Info_Qualification.Standard.MinTransmissionSecond));
 
-            paramInfo.Add(new SQLiteParamInfo("flameout_second", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetQualification.Info_Qualification.Standard.FlameoutSecond));
+            //paramInfo.Add(new SQLiteParamInfo("flameout_second", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetQualification.Info_Qualification.Standard.FlameoutSecond));
+            paramInfo.Add(new SQLiteParamInfo("flameout_second", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetQualification.Info_Qualification.FlameoutTime));
             paramInfo.Add(new SQLiteParamInfo("test_duration", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetQualification.Info_Qualification.Standard.FinishTimeSecond));
 
             paramInfo.Add(new SQLiteParamInfo("summary_description", DbType.String, this.SESSION_MANAGER.IEC61034_DataSetQualification.Info_QualificationSummary.Description));

@@ -59,7 +59,7 @@ namespace FTSolutions.IEC61034.Runner.Popup
         {
             vmPopup_QualificationRegistration vm = this.DataContext as vmPopup_QualificationRegistration;
 
-            if (vm != null && vm.CurrentRegistrationInfo != null)
+            if (vm != null && vm.CurrentRegistrationInfo != null && vm.CurrentRegistrationInfo.STATUS.Equals(UILabelConst.CODE_R))
             {
                 vm.IsPopupOwner = true;
 
